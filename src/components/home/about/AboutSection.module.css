@@ -158,6 +158,7 @@
   .heading {
     font-size: 2rem;
     line-height: 1.2;
+    text-align: center;
   }
 
   .description {
@@ -167,6 +168,6 @@
   }
 
   .ctaBtn {
-    align-self: flex-start;
+    align-self: center;
   }
 }
