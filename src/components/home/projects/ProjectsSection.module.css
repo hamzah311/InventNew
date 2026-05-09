@@ -242,24 +242,58 @@
 
 /* ── Mobile ── */
 @media (max-width: 640px) {
-  .topRow {
-      padding: 0 16px;
-  }
-
-  .track {
-      padding: 0 16px;
-      gap: 16px;
-  }
-
-  .card {
-      flex: 0 0 calc(85% - 16px);
-  }
 
   .wrapper {
-      padding: 36px 0 28px;
+    padding: 36px 0 28px;
+  }
+
+  .topRow {
+    padding: 0 16px;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .topLeft {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .headingRow {
+    gap: 12px;
   }
 
   .heading {
-      white-space: normal;
+    white-space: normal;
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .bottomPart {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .description {
+    max-width: 100%;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .ctaBtn {
+    align-self: center;
+  }
+
+  .track {
+    padding: 0 16px;
+    gap: 16px;
+  }
+
+  .card {
+    flex: 0 0 85%;
   }
 }

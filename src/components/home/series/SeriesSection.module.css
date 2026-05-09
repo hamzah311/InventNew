@@ -166,25 +166,36 @@
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
+
+  .wrapper {
+    padding: 36px 16px;
+  }
+
+  .heading {
+    text-align: center;
+    white-space: normal;
+  }
+
   .grid {
-      grid-template-columns: 1fr;
-      max-width: 480px;
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: 20px;
+    justify-items: center;
   }
 
   .card {
-      aspect-ratio: 4 / 3;
+    width: 100%;
+    max-width: 340px;
+    height: 420px;
+    aspect-ratio: unset;
   }
 
-  .wrapper {
-      padding: 36px 16px;
-  }
-
-  /* On mobile show hover content always visible */
+  /* On mobile show only title */
   .hoverContent {
-      opacity: 0;
+    opacity: 0;
   }
 
   .cardName {
-      opacity: 1;
+    opacity: 1;
   }
 }

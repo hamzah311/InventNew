@@ -126,21 +126,47 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+
+  .wrapper {
+    padding: 36px 16px;
+  }
+
   .inner {
-      flex-direction: column;
-      gap: 32px;
+    flex-direction: column;
+    gap: 28px;
+    align-items: center;
   }
 
   .imageBox {
-      flex: none;
-      width: 100%;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 14px;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+  }
+
+  .content {
+    width: 100%;
+    gap: 20px;
+    text-align: left;
+  }
+
+  .heading {
+    font-size: 2rem;
+    line-height: 1.2;
   }
 
   .description {
-      max-width: 100%;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 100%;
   }
 
-  .wrapper {
-      padding: 36px 16px;
+  .ctaBtn {
+    align-self: flex-start;
   }
 }
