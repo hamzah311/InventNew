@@ -8,7 +8,12 @@ const topLogos = [
   { src: "/logos/logo-5.png", alt: "Logo 5" },
   { src: "/logos/logo-6.png", alt: "Logo 6" },
   { src: "/logos/logo-7.png", alt: "Logo 7" },
-  { src: "/logos/logo-8.png", alt: "Logo 8" },
+  { src: "/logos/logo-9.png", alt: "Logo 9" },
+  { src: "/logos/logo-10.png", alt: "Logo 10" },
+  { src: "/logos/logo-11.png", alt: "Logo 11" },
+  { src: "/logos/logo-12.png", alt: "Logo 12" },
+  { src: "/logos/logo-13.png", alt: "Logo 13" },
+  { src: "/logos/logo-14.png", alt: "Logo 14" },
 ];
 
 // Bottom row logos (right to left → animate right)
@@ -33,8 +38,9 @@ function LogoRow({ logos, direction }: LogoRowProps) {
   return (
     <div className={styles.rowWrapper}>
       <div
-        className={`${styles.track} ${direction === "left" ? styles.trackLeft : styles.trackRight
-          }`}
+        className={`${styles.track} ${
+          direction === "left" ? styles.trackLeft : styles.trackRight
+        }`}
       >
         {repeated.map((logo, i) => (
           <div className={styles.logoCard} key={`${logo.alt}-${i}`}>

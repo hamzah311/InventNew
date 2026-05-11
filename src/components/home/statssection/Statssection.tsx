@@ -28,27 +28,35 @@
 "use client";
 
 import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 import styles from "./Statssection.module.css";
 
 const STATS = [
-  { number: 100, suffix: "+", label: "Projects Delivered" },
+  { number: 100, suffix: "+", label: "Villa Elevator delivered" },
   { number: 500, suffix: "+", label: "Design Variations" },
   { number: 10, suffix: "+", label: "Years of Industry Expertise" },
   { number: 15, suffix: "+", label: "Trusted Suppliers & Partners" },
 ];
 
 const StatsSection = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
+
   return (
-    <section className={styles.statsSection}>
+    <section className={styles.statsSection} ref={ref}>
       <div className={styles.statsGrid}>
         {STATS.map((stat, index) => (
           <div key={index} className={styles.statCard}>
             <span className={styles.statNumber}>
-              <CountUp
-                end={stat.number}
-                duration={2}
-                suffix={stat.suffix}
-              />
+              {inView && (
+                <CountUp
+                  end={stat.number}
+                  duration={2}
+                  suffix={stat.suffix}
+                />
+              )}
             </span>
 
             <span className={styles.statLabel}>

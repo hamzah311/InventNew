@@ -24,7 +24,7 @@ export default function ContactBanner({ data }: ContactBannerProps) {
     };
 
     return (
-        <section className={styles.wrapper}>
+        <section  id="contact-banner" className={styles.wrapper}>
 
             {/* Background image + overlay */}
             <img src={imageSrc} alt="" className={styles.bgImage} aria-hidden="true" />

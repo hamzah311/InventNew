@@ -64,11 +64,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 72px;
+  height: 80px;
   padding: 0 16px;
 
   /* Subtle separator */
-  border-right: 1px solid #e8e8f0;
+  /* border-right: 1px solid #e8e8f0; */
 }
 
 .logoCard:last-child {

@@ -47,9 +47,15 @@
     gap: 18px;
 }
 
-.logo {
+/* .logo {
     display: flex;
     align-items: center;
+    width: 220px !important;
+} */
+.logo :global(img) {
+    width: 100px !important;
+    height: auto !important;
+    object-fit: contain;
 }
 
 .tagline {
@@ -332,5 +338,30 @@
 
     .navCol {
         grid-column: 1;
+    }
+}
+@media (max-width: 600px) {
+
+    .brandCol {
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .logo :global(img) {
+        width: 180px !important;
+        margin: 0 auto;
+    }
+
+    .tagline {
+        text-align: center;
+    }
+
+    .quoteBtn {
+        margin: 0 auto;
     }
 }

@@ -1,7 +1,7 @@
 export const HERO_TEXTS = {
     HOME: {
         hero: {
-            Heading: "Private Home Elevators Designed for Luxury Villas in the UAE",
+            // Heading: "Private Home Elevators Designed for Luxury Villas in the UAE",
             // highlightedText: "Elevation",
             subHeading: "Smart home lift solutions designed for comfort, safety, \nand seamless everyday movement.",
             buttonText: "Get a free quote",

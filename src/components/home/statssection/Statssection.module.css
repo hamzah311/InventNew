@@ -31,18 +31,20 @@ gap: 16px;
 
 .statNumber {
   font-family: var(--font-verah);
-  font-size: 60px;
+  font-size: 80px;
   font-weight: 700;
   color: #1a1a1a;
   line-height: 1;
   letter-spacing: -1px;
   transform: scaleY(1.7);
+  transform: scaleX(1.1);
+
 }
 
 .statLabel {
   font-size: 0.95rem;
   font-weight: 500;
-  font-family: var(--font-gotham);
+  font-family: var(--font-verah);
   color: #444444;
   line-height: 1.4;
   letter-spacing: 0.2px;

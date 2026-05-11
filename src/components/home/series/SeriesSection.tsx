@@ -5,21 +5,21 @@ import styles from "./SeriesSection.module.css";
 const SERIES_DEFAULT = [
     {
         name: "Heritage",
-        description: "Classic craftsmanship with timeless elegance for heritage homes.",
+        description: "Classic enclosed lifts for large villas",
         href: "/series/heritage",
-        imageSrc: "/images/heritage.png",
+        imageSrc: "/images/heritage-1.png",
     },
     {
         name: "Horizon",
-        description: "Minimal modern lifts for contemporary homes.",
+        description: "Minimal modern lifts for contemporary homes",
         href: "/series/horizon",
-        imageSrc: "/images/horizon.png",
+        imageSrc: "/images/horizon-1.png",
     },
     {
         name: "Aero / Slim",
-        description: "Sleek panoramic glass elevators for open, airy spaces.",
+        description: "Space-saving lifts for compact layouts",
         href: "/series/aero-slim",
-        imageSrc: "/images/aero-slim.png",
+        imageSrc: "/images/aero-slim-1.png",
     },
 ];
 

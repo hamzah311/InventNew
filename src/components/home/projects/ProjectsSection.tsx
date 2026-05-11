@@ -59,7 +59,7 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
   const heading = data?.heading ?? "Projects";
   const description =
     data?.description ??
-    "Explore our collection of bespoke home lift installations, where precision engineering meets sophisticated design. Each project is a reflection of our dedication to seamless mobility, enhancing comfort and elegance across modern homes and luxury living spaces.";
+    "Explore our bespoke home lift installations, crafted to combine precision engineering, seamless mobility, and refined design for modern luxury living.";
   const buttonText = data?.buttonText ?? "Get a free quote";
   const buttonHref = data?.buttonHref ?? "/quote";
   const projects = data?.projects ?? PROJECTS_DEFAULT;
@@ -95,10 +95,29 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
 
         <div className={styles.bottomPart}>
           <p className={styles.description}>{description}</p>
-          <a href={buttonHref} className={styles.ctaBtn}>
+          {/* <a href={buttonHref} className={styles.ctaBtn}>
             <span className={styles.ctaText}>{buttonText}</span>
             <span className={styles.ctaArrow}>↗</span>
-          </a>
+          </a> */}
+          <a
+  href="#"
+  className={styles.ctaBtn}
+  onClick={(e) => {
+    e.preventDefault();
+
+    document
+      .getElementById("contact-banner")
+      ?.scrollIntoView({
+        behavior: "smooth",
+      });
+  }}
+>
+  <span className={styles.ctaText}>
+    {buttonText}
+  </span>
+
+  <span className={styles.ctaArrow}>↗</span>
+</a>
         </div>
       </div>
 

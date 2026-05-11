@@ -167,7 +167,7 @@
 .imageBox {
   width: 100%;
   aspect-ratio: 4 / 3;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   overflow: hidden;
 }
 
@@ -245,6 +245,9 @@
 
   .wrapper {
     padding: 36px 0 28px;
+  }
+  .description{
+    text-align: center;
   }
 
   .topRow {

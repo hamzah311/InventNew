@@ -20,6 +20,9 @@ import CtaBanner from "@/components/home/ctabanner/CtaBanner";
 import SolutionsSection from "@/components/home/solutions/SolutionsSection";
 import ProjectsSection from "@/components/home/projects/ProjectsSection";
 import ContactBanner from "@/components/home/contactbanner/ContactBanner";
+import FloatingBtn from "@/components/home/floatingbtn/FloatingBtn";
+import ReviewSection from "@/components/home/review/ReviewSection";
+import MarqueeSection from "@/components/home/citymarquee/MarqueeSection";
 
 export default function Home() {
   const current_theme: LandingType = "HOME";
@@ -30,11 +33,13 @@ export default function Home() {
       <HeroBanner data={HERO_TEXTS[current_theme]} />
       <StatsSection />
       <AboutSection />
+      <MarqueeSection />
       <SeriesSection />
       <FeaturesSection />
       <CtaBanner />
       <SolutionsSection />
       <ProjectsSection />
+      <FloatingBtn />
       <MarqueeLogos />
       {/* <ScrollingText data={SCROLLING_TEXT[current_theme]} />
       <Predefine data={PREDEFINE[current_theme]} />
@@ -43,6 +48,7 @@ export default function Home() {
       <HSection data={LIFE_HERO_SECTION[current_theme]} />
       <Designed data={DESIGNED_SPACES_HERO[current_theme]} />
       <Testimonial data={TESTIMONIAL[current_theme]} /> */}
+      <ReviewSection />
       <FaqContact />
       <ContactBanner />
       <Footer />

@@ -164,7 +164,7 @@ export default function FaqContact() {
         {/* ── Right: Image ── */}
 <div className={styles.imageSide}>
   <img
-    src="/images/faq-image.jpg"
+    src="/images/faq-image.png"
     alt="Invent Elevator"
     className={styles.sideImage}
   />

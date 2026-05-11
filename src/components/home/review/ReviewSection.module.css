@@ -1,0 +1,202 @@
+/* ─────────────────────────────────────────────
+   ReviewSection.module.css
+───────────────────────────────────────────── */
+
+.wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 0 48px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ── Heading ── */
+.headingBlock {
+  text-align: center;
+  padding: 0 40px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.heading {
+  font-family: var(--font-verah);
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.subheading {
+  font-size: 0.95rem;
+  color: #777777;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ── Track ── */
+.track {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding: 8px 40px 16px;
+  cursor: grab;
+  box-sizing: border-box;
+}
+
+.track:active {
+  cursor: grabbing;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Card ── */
+.card {
+  flex: 0 0 calc(33.333% - 14px);
+
+  background: #ffffff;
+  border: 1.5px solid #ebebeb;
+  border-radius: 16px;
+
+  padding: 28px 28px 24px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+}
+
+.card:hover {
+  border-color: #E5B869;
+  box-shadow: 0 4px 24px rgba(229, 184, 105, 0.12);
+}
+
+/* ── Stars ── */
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  color: #E5B869;
+  font-size: 1rem;
+}
+
+/* ── Review text ── */
+.reviewText {
+  font-size: 0.92rem;
+  color: #444444;
+  line-height: 1.75;
+  margin: 0;
+  flex: 1;
+}
+
+/* ── Author ── */
+.author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+  background: #1a1a1a;
+  color: #E5B869;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  flex-shrink: 0;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.authorName {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.authorLocation {
+  font-size: 0.78rem;
+  color: #888888;
+  font-weight: 400;
+}
+
+/* ── Tablet ── */
+@media (max-width: 1024px) {
+  .card {
+      flex: 0 0 calc(50% - 10px);
+  }
+
+  .track {
+      padding: 8px 24px 16px;
+  }
+
+  .headingBlock {
+      padding: 0 24px;
+  }
+
+  .wrapper {
+      padding: 48px 0 36px;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .card {
+      /* Full viewport width minus the 32px total side padding = one card exactly */
+      flex: 0 0 calc(100vw - 32px);
+      min-width: 0;
+  }
+
+  .track {
+      padding: 8px 16px 16px;
+      gap: 16px;
+      /* Snap one card at a time */
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      overflow-x: auto;
+  }
+
+  .card {
+      scroll-snap-align: center;
+  }
+
+  .headingBlock {
+      padding: 0 16px;
+  }
+
+  .wrapper {
+      padding: 36px 0 28px;
+  }
+
+  .reviewText {
+      font-size: 0.88rem;
+      line-height: 1.7;
+  }
+}

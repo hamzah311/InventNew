@@ -1,6 +1,6 @@
 .wrapper {
   width: 100%;
-  padding: 60px 40px;
+  padding: 60px 40px 60px 0;
   box-sizing: border-box;
 }
 
@@ -15,17 +15,18 @@
 /* LEFT — Image */
 .imageBox {
   /* flex: 0 0 46% */
-  border-radius: 16px;
+  /* border-radius: 16px; */
   overflow: hidden;
   width: calc(50% - 2.5rem);
   /* margin-left: 60px; */
 }
 
 .image {
-    border-radius: 16px;
+    /* border-radius: 16px; */
     display: block;
     width: 100%;
     object-fit: cover;
+    /* margin-left: 70px; */
 }
 
 /* RIGHT — Content */
@@ -128,7 +129,7 @@
 @media (max-width: 768px) {
 
   .wrapper {
-    padding: 36px 16px;
+    padding: 36px 0px;
   }
 
   .inner {
@@ -140,16 +141,20 @@
   .imageBox {
     width: 100%;
     max-width: 100%;
-    border-radius: 14px;
+    /* border-radius: 14px; */
+
   }
 
   .image {
     width: 100%;
     height: auto;
-    border-radius: 14px;
+    /* border-radius: 14px; */
+    margin: 0;
+
   }
 
   .content {
+    padding: 0 16px ;
     width: 100%;
     gap: 20px;
     text-align: left;
@@ -165,6 +170,7 @@
     font-size: 0.95rem;
     line-height: 1.7;
     max-width: 100%;
+    text-align: center;
   }
 
   .ctaBtn {

@@ -30,16 +30,14 @@
 .overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.72) 0%,
-        rgba(0, 0, 0, 0.28) 45%,
-        rgba(0, 0, 0, 0.08) 100%
-    );
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.72) 0%,
+            rgba(0, 0, 0, 0.58) 45%,
+            rgba(0, 0, 0, 0.08) 100%);
 }
 
 /* ── FLEX CONTAINER (NEW) ─────────────────── */
-.inner {
+/* .inner {
     position: relative;
     z-index: 2;
     width: 100%;
@@ -47,8 +45,22 @@
     justify-content: space-between;
     align-items: flex-end;
     padding: 0 52px 52px;
+    gap: 40px; 
+}*/
+.inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 52px 52px;
     gap: 40px;
+    box-sizing: border-box;
 }
+
 
 /* ── Content (LEFT) ───────────────────────── */
 .content {
@@ -142,6 +154,7 @@
 .formBox {
     max-width: 500px;
     width: 100%;
+    transform: translateY(-40px);
 }
 
 .form {
@@ -149,7 +162,7 @@
     flex-direction: column;
     gap: 14px;
     padding: 24px;
-    border-radius: 16px;
+    /* border-radius: 16px; */
 
     /* Glass effect */
     background: rgba(0, 0, 0, 0.5);
@@ -171,7 +184,7 @@
 .form textarea {
     width: 100%;
     padding: 12px 14px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     border: none;
     outline: none;
 
@@ -188,7 +201,7 @@
 .form select {
     width: 100%;
     padding: 12px 14px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     border: none;
     outline: none;
 
@@ -199,6 +212,7 @@
     appearance: none;
     cursor: pointer;
 }
+
 .form select option {
     color: #000;
 }
@@ -207,7 +221,7 @@
 .form button {
     margin-top: 6px;
     padding: 12px;
-    border-radius: 30px;
+    /* border-radius: 30px; */
     border: none;
     background: #ffffff;
     color: #000000;
@@ -220,67 +234,202 @@
     background: #e0b95c;
 }
 
+.formNote {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.72);
+    margin-top: 4px;
+}
+
+.formActions {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.submitBtn {
+    flex: 1;
+    margin-top: 0 !important;
+    padding: 12px;
+    border: none;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.submitBtn:hover {
+    background: #e0b95c;
+}
+
+.whatsappBtn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 12px;
+    background: #1DA851;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.whatsappBtn:hover {
+    background: #188c44;
+}
+
+/* ─────────────────────────────────────────────
+   Add these to the bottom of HeroBanner.module.css
+───────────────────────────────────────────── */
+
+.cyclingTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0 0 20px;
+    line-height: 1.05;
+}
+
+.staticLine {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-family: var(--font-verah);
+    font-weight: 800;
+    color: #ffffff;
+    display: block;
+    letter-spacing: -1px;
+    white-space: nowrap !important;
+
+}
+
+.cyclingWord {
+    font-size: clamp(2.8rem, 8vw, 7rem);
+    font-family: var(--font-verah);
+    font-weight: 900;
+    color: #ffbe68;
+    display: block;
+    letter-spacing: -2px;
+    line-height: 1;
+    will-change: transform, opacity;
+}
+
+/* Slide up & fade in */
+.wordEnter {
+    animation: wordSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Slide up & fade out */
+.wordExit {
+    animation: wordSlideOut 0.4s cubic-bezier(0.7, 0, 1, 0.3) forwards;
+}
+
+@keyframes wordSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes wordSlideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-24px);
+    }
+}
+
+@media (max-width: 640px) {
+    .staticLine {
+        font-size: 40px;
+
+
+    }
+
+    .cyclingWord {
+     
+
+        font-size: 50px;
+    }
+}
+
 /* ── Responsive ────────────────────────── */
 @media (max-width: 768px) {
 
     .wrapper {
-      min-height: 100dvh;
-      height: auto;
-      align-items: flex-end;
+        min-height: 100dvh;
+        height: auto;
+        align-items: flex-end;
     }
-  
+
     .inner {
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-end;
-      gap: 24px;
-      padding: 90px 16px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: 24px;
+        padding: 90px 16px 24px;
     }
-  
+
     .content {
-      max-width: 100%;
-      gap: 12px;
+        max-width: 100%;
+        gap: 12px;
     }
-  
+
     .title {
-      font-size: 2rem;
-      line-height: 1.2;
+        font-size: 2rem;
+        line-height: 1.2;
     }
-  
+
     .subtitle {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      white-space: normal;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        white-space: normal;
     }
-  
+
     .ctaBtn {
-      font-size: 0.75rem;
+        font-size: 0.75rem;
     }
-  
+
     .formBox {
-      width: 100%;
-      max-width: 100%;
+        width: 100%;
+        max-width: 100%;
+        transform: translateY(0px);
     }
-  
+
     .form {
-      padding: 18px;
-      gap: 12px;
-      border-radius: 14px;
+        padding: 18px;
+        gap: 12px;
+        /* border-radius: 14px; */
     }
-  
+
     .form h3 {
-      font-size: 1.2rem;
+        font-size: 1.2rem;
     }
-  
+
     .form input,
     .form textarea,
     .form select {
-      padding: 12px;
-      font-size: 0.88rem;
+        padding: 12px;
+        font-size: 0.88rem;
     }
-  
+
     .form button {
-      padding: 12px;
-      font-size: 0.9rem;
+        padding: 12px;
+        font-size: 0.9rem;
     }
-  }
+
+    .formActions {
+        flex-direction: column;
+    }
+}

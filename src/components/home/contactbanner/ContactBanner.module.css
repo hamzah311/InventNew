@@ -67,7 +67,7 @@
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 20px;
+  /* border-radius: 20px; */
   padding: 32px 32px 28px;
   box-sizing: border-box;
 }
@@ -93,7 +93,7 @@
 .input {
   width: 100%;
   padding: 16px 20px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   border: none;
   outline: none;
   background: #ffffff;
@@ -116,7 +116,7 @@
 .submitBtn {
   width: 100%;
   padding: 16px 24px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   border: none;
   background: #1a1a1a;
   color: #ffffff;
@@ -136,7 +136,7 @@
 .whatsappBtn {
   width: 100%;
   padding: 16px 24px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   border: none;
   background: #1a1a1a;
   color: #ffffff;

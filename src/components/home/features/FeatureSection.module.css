@@ -34,15 +34,10 @@
 /* LEFT — Image */
 .imageBox {
   flex: 0 0 44%;
-  border-radius: 16px;
+  /* border-radius: 16px; */
   overflow: hidden;
   /* aspect-ratio: 3 / 4; */
   height: auto;
-}
-.imageBox {
-  flex: 0 0 44%;
-  border-radius: 16px;
-  overflow: hidden;
   display: flex;
 }
 
@@ -52,7 +47,7 @@
   flex: 1;
   object-fit: cover;
   display: block;
-  border-radius: 16px;
+  /* border-radius: 16px; */
 }
 
 /* RIGHT — Content */
@@ -105,7 +100,7 @@
   align-items: center;
   gap: 14px;
   padding: 14px 20px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   background: #fdf8f0;
   cursor: pointer;
   transition: background 0.2s ease;

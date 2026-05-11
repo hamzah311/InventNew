@@ -49,7 +49,7 @@ const Navbar = () => {
                     <div className={styles.logoContainer}>
                         <Link href="/" className={styles.logoLink}>
                             <div className={styles.logoIcon}>
-                                <img src="/logo.png" alt="invent elevator logo" />
+                                <img src="/logo-2.png" alt="invent elevator logo" />
                             </div>
                         </Link>
                     </div>
