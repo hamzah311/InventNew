@@ -223,7 +223,7 @@
 /* ── Responsive ────────────────────────── */
 @media (max-width: 768px) {
     .wrapper {
-        border-radius: 12px;
+        /* border-radius: 12px; */
         height: clamp(400px, 80vw, 520px);
     }
 

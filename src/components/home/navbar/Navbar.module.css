@@ -259,7 +259,10 @@
     .navbar {
         padding: 8px 32px;
     }
-
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+      }
     .mobileMenu {
         display: flex;
         flex-direction: column;
@@ -274,6 +277,7 @@
         border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 24px;
         padding: 24px;
+        margin: 10px;
         opacity: 0;
         visibility: hidden;
         transform: translateY(-10px) scale(0.98);
