@@ -23,12 +23,14 @@ import ContactBanner from "@/components/home/contactbanner/ContactBanner";
 import FloatingBtn from "@/components/home/floatingbtn/FloatingBtn";
 import ReviewSection from "@/components/home/review/ReviewSection";
 import MarqueeSection from "@/components/home/citymarquee/MarqueeSection";
+import NotificationBar from "@/components/home/notificationbar/NotificationBar";
 
 export default function Home() {
   const current_theme: LandingType = "HOME";
 
   return (
     <div className={styles.page}>
+      <NotificationBar />
       <Navbar />
       <HeroBanner data={HERO_TEXTS[current_theme]} />
       <StatsSection />

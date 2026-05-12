@@ -49,6 +49,7 @@
 }*/
 .inner {
     position: relative;
+    top: 0;
     z-index: 2;
     width: 100%;
     max-width: 1400px;
@@ -161,7 +162,7 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
-    padding: 24px;
+    padding: 20px;
     /* border-radius: 16px; */
 
     /* Glass effect */
@@ -239,6 +240,7 @@
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.72);
     margin-top: 4px;
+    margin-bottom: -10px;
 }
 
 .formActions {
@@ -297,7 +299,7 @@
 .staticLine {
     font-size: clamp(2rem, 5vw, 4rem);
     font-family: var(--font-verah);
-    font-weight: 800;
+    font-weight: 400;
     color: #ffffff;
     display: block;
     letter-spacing: -1px;
@@ -308,6 +310,8 @@
 .cyclingWord {
     font-size: clamp(2.8rem, 8vw, 7rem);
     font-family: var(--font-verah);
+    font-style: italic;
+    text-transform: uppercase;
     font-weight: 900;
     color: #ffbe68;
     display: block;

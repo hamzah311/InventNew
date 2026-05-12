@@ -119,26 +119,22 @@ export default function Footer() {
                             </span>
                         </Link> */}
             <Link
-  href="#"
-  className={styles.quoteBtn}
-  onClick={(e) => {
-    e.preventDefault();
+              href="#"
+              className={styles.quoteBtn}
+              onClick={(e) => {
+                e.preventDefault();
 
-    document
-      .getElementById("contact-banner")
-      ?.scrollIntoView({
-        behavior: "smooth",
-      });
-  }}
->
-  <span className={styles.quoteBtnText}>
-    Get a Free Quote
-  </span>
+                document.getElementById("contact-banner")?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
+              <span className={styles.quoteBtnText}>Get a Free Quote</span>
 
-  <span className={styles.arrowCircle}>
-    <ArrowIcon />
-  </span>
-</Link>
+              <span className={styles.arrowCircle}>
+                <ArrowIcon />
+              </span>
+            </Link>
           </div>
 
           {/* Nav Column 1 */}
