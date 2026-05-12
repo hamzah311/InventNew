@@ -1,21 +1,17 @@
 /* ─────────────────────────────────────────────
    HeroBanner.module.css
-   ───────────────────────────────────────────── */
+───────────────────────────────────────────── */
 
-/* ── Wrapper ───────────────────────────────── */
 .wrapper {
     position: relative;
     width: 100%;
-    /* margin: 5px auto; */
-    /* padding: 5px; */
     height: 100dvh;
-    /* border-radius: 20px; */
     overflow: hidden;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
 }
 
-/* ── Background video ──────────────────────── */
 .bgVideo {
     position: absolute;
     inset: 0;
@@ -26,77 +22,105 @@
     display: block;
 }
 
-/* ── Gradient overlay ──────────────────────── */
 .overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(to top,
-            rgba(0, 0, 0, 0.72) 0%,
-            rgba(0, 0, 0, 0.58) 45%,
-            rgba(0, 0, 0, 0.08) 100%);
+        rgba(0, 0, 0, 0.72) 0%,
+        rgba(0, 0, 0, 0.58) 45%,
+        rgba(0, 0, 0, 0.08) 100%);
 }
 
-/* ── FLEX CONTAINER (NEW) ─────────────────── */
-/* .inner {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 0 52px 52px;
-    gap: 40px; 
-}*/
+/* ── Center container ── */
 .inner {
     position: relative;
-    top: 0;
     z-index: 2;
+    top: 20px;
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 0 52px 52px;
-    gap: 40px;
+    padding: 0 52px;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-
-/* ── Content (LEFT) ───────────────────────── */
+/* ── Content block — centered ── */
 .content {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    max-width: 500px;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    max-width: 1100px;
 }
 
-/* ── Title ───────────────────────────────── */
-.title {
-    font-family: var(--font-verah);
-    font-size: clamp(1.9rem, 3.2vw, 2.8rem);
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #ffffff;
-    line-height: 1.2;
+/* ── Cycling title — static + word on same line ── */
+/* ── Cycling title — word in next line ── */
+.cyclingTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     margin: 0;
+    line-height: 1.05;
 }
 
-.gold {
-    color: #c9a44a;
+.staticLine {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-family: var(--font-verah);
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: -1px;
+    text-align: center;
 }
 
-/* ── Subtitle ───────────────────────────── */
+.cyclingWord {
+    font-size: clamp(2.8rem, 8vw, 7rem);
+    font-family: var(--font-verah);
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #ffbe68;
+    letter-spacing: -2px;
+    line-height: 1;
+    will-change: transform, opacity;
+    text-align: center;
+}
+
+/* Slide up & fade in */
+.wordEnter {
+    animation: wordSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Slide up & fade out */
+.wordExit {
+    animation: wordSlideOut 0.4s cubic-bezier(0.7, 0, 1, 0.3) forwards;
+}
+
+@keyframes wordSlideIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes wordSlideOut {
+    from { opacity: 1; transform: translateY(0);      }
+    to   { opacity: 0; transform: translateY(-24px);  }
+}
+
+/* ── Subtitle ── */
 .subtitle {
     font-family: var(--font-verah);
-    font-size: clamp(1rem, 2vw, 2rem);
+    font-size: clamp(1rem, 2vw, 1.4rem);
     color: rgba(255, 255, 255, 0.85);
     margin: 0;
-    line-height: 1.5;
-    white-space: nowrap;
+    line-height: 1.6;
+    text-align: center;
 }
 
-/* ── CTA Button ─────────────────────────── */
+/* ── CTA Button ── */
 .ctaBtn {
     display: inline-flex;
     align-items: center;
@@ -151,289 +175,52 @@
     color: #000;
 }
 
-/* ── FORM (RIGHT SIDE) ───────────────────── */
-.formBox {
-    max-width: 500px;
-    width: 100%;
-    transform: translateY(-40px);
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: 20px;
-    /* border-radius: 16px; */
-
-    /* Glass effect */
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-.form h3 {
-    color: #ffffff;
-    font-family: var(--font-verah);
-    margin-bottom: 4px;
-}
-
-/* ── Inputs ─────────────────────────────── */
-.form input,
-.form textarea {
-    width: 100%;
-    padding: 12px 14px;
-    /* border-radius: 10px; */
-    border: none;
-    outline: none;
-
-    background: rgba(255, 255, 255, 0.12);
-    color: #ffffff;
-    font-size: 0.9rem;
-}
-
-.form input::placeholder,
-.form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.form select {
-    width: 100%;
-    padding: 12px 14px;
-    /* border-radius: 10px; */
-    border: none;
-    outline: none;
-
-    background: rgba(255, 255, 255, 0.12);
-    color: #ffffff;
-    font-size: 0.9rem;
-
-    appearance: none;
-    cursor: pointer;
-}
-
-.form select option {
-    color: #000;
-}
-
-/* ── Submit Button ─────────────────────── */
-.form button {
-    margin-top: 6px;
-    padding: 12px;
-    /* border-radius: 30px; */
-    border: none;
-    background: #ffffff;
-    color: #000000;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.form button:hover {
-    background: #e0b95c;
-}
-
-.formNote {
-    font-size: 0.82rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.72);
-    margin-top: 4px;
-    margin-bottom: -10px;
-}
-
-.formActions {
-    display: flex;
-    gap: 12px;
-    margin-top: 10px;
-}
-
-.submitBtn {
-    flex: 1;
-    margin-top: 0 !important;
-    padding: 12px;
-    border: none;
-    background: #ffffff;
-    color: #000000;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.submitBtn:hover {
-    background: #e0b95c;
-}
-
-.whatsappBtn {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    padding: 12px;
-    background: #1DA851;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.2s ease;
-}
-
-.whatsappBtn:hover {
-    background: #188c44;
-}
-
-/* ─────────────────────────────────────────────
-   Add these to the bottom of HeroBanner.module.css
-───────────────────────────────────────────── */
-
-.cyclingTitle {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin: 0 0 20px;
-    line-height: 1.05;
-}
-
-.staticLine {
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-family: var(--font-verah);
-    font-weight: 400;
-    color: #ffffff;
-    display: block;
-    letter-spacing: -1px;
-    white-space: nowrap !important;
-
-}
-
-.cyclingWord {
-    font-size: clamp(2.8rem, 8vw, 7rem);
-    font-family: var(--font-verah);
-    font-style: italic;
-    text-transform: uppercase;
-    font-weight: 900;
-    color: #ffbe68;
-    display: block;
-    letter-spacing: -2px;
-    line-height: 1;
-    will-change: transform, opacity;
-}
-
-/* Slide up & fade in */
-.wordEnter {
-    animation: wordSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Slide up & fade out */
-.wordExit {
-    animation: wordSlideOut 0.4s cubic-bezier(0.7, 0, 1, 0.3) forwards;
-}
-
-@keyframes wordSlideIn {
-    from {
-        opacity: 0;
-        transform: translateY(24px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes wordSlideOut {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    to {
-        opacity: 0;
-        transform: translateY(-24px);
-    }
-}
-
-@media (max-width: 640px) {
-    .staticLine {
-        font-size: 40px;
-
-
-    }
-
-    .cyclingWord {
-     
-
-        font-size: 50px;
-    }
-}
-
-/* ── Responsive ────────────────────────── */
+/* ── Mobile ── */
 @media (max-width: 768px) {
-
     .wrapper {
-        min-height: 100dvh;
+        min-height: 50dvh;
         height: auto;
-        align-items: flex-end;
     }
 
     .inner {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-end;
-        gap: 24px;
-        padding: 90px 16px 24px;
+        top: 80px;
+        padding: 0 20px;
     }
 
     .content {
-        max-width: 100%;
-        gap: 12px;
+        gap: 16px;
     }
 
-    .title {
-        font-size: 2rem;
-        line-height: 1.2;
+    .cyclingTitle {
+        font-size: 50px;
+        gap: 0 10px;
+    }
+
+    .staticLine {
+        font-size: 45px;
+        white-space: normal;
+    }
+
+    .cyclingWord {
+        font-size: 2.8rem;
     }
 
     .subtitle {
-        font-size: 0.95rem;
-        line-height: 1.6;
-        white-space: normal;
+        font-size: 1rem;
     }
 
     .ctaBtn {
         font-size: 0.75rem;
     }
+}
 
-    .formBox {
-        width: 100%;
-        max-width: 100%;
-        transform: translateY(0px);
+@media (max-width: 480px) {
+    .staticLine {
+        font-size: 45px;
     }
 
-    .form {
-        padding: 18px;
-        gap: 12px;
-        /* border-radius: 14px; */
-    }
-
-    .form h3 {
-        font-size: 1.2rem;
-    }
-
-    .form input,
-    .form textarea,
-    .form select {
-        padding: 12px;
-        font-size: 0.88rem;
-    }
-
-    .form button {
-        padding: 12px;
-        font-size: 0.9rem;
-    }
-
-    .formActions {
-        flex-direction: column;
+    .cyclingWord {
+        margin-top: 10px;
+        font-size: 50px;
     }
 }

@@ -23,7 +23,7 @@
 
 .heading {
   font-family: var(--font-verah);
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-size: 34px;
   font-weight: 700;
   color: #1a1a1a;
   margin: 0;
@@ -31,6 +31,7 @@
 
 .subheading {
   font-size: 0.95rem;
+  font-family: var(--font-gotham);
   color: #777777;
   margin: 0;
   font-weight: 400;
@@ -185,6 +186,10 @@
 
   .card {
       scroll-snap-align: center;
+  }
+
+  .heading{
+    font-size: 30px;
   }
 
   .headingBlock {

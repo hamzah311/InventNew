@@ -24,6 +24,8 @@ import FloatingBtn from "@/components/home/floatingbtn/FloatingBtn";
 import ReviewSection from "@/components/home/review/ReviewSection";
 import MarqueeSection from "@/components/home/citymarquee/MarqueeSection";
 import NotificationBar from "@/components/home/notificationbar/NotificationBar";
+import ProcessSteps from "@/components/home/processsteps/ProcessSteps";
+import ContactForm from "@/components/home/contactform/ContactForm";
 
 export default function Home() {
   const current_theme: LandingType = "HOME";
@@ -33,10 +35,12 @@ export default function Home() {
       <NotificationBar />
       <Navbar />
       <HeroBanner data={HERO_TEXTS[current_theme]} />
+      <ContactForm />
       <StatsSection />
       <AboutSection />
       <MarqueeSection />
       <SeriesSection />
+      <ProcessSteps />
       <FeaturesSection />
       <CtaBanner />
       <SolutionsSection />

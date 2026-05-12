@@ -15,7 +15,7 @@
 
 .heading {
   font-family: var(--font-verah);
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-size: 34px;
   font-weight: 700;
   color: #1a1a1a;
   margin: 0;
@@ -187,5 +187,6 @@
   .heading {
       white-space: normal;
       text-align: center;
+      font-size: 30px;
   }
 }

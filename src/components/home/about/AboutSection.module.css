@@ -40,7 +40,7 @@
 
 .heading {
   font-family: var(--font-verah);
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-size: 34px;
   font-weight: 700;
   color: #1a1a1a;
   line-height: 1.15;
@@ -161,7 +161,7 @@
   }
 
   .heading {
-    font-size: 2rem;
+    font-size: 30px;
     line-height: 1.2;
     text-align: center;
   }

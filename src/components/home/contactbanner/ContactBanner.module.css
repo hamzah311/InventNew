@@ -44,7 +44,7 @@
 
 .heading {
   font-family: var(--font-verah);
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-size: 34px;
   font-weight: 700;
   color: #ffffff;
   margin: 0;
@@ -180,15 +180,15 @@
       min-height: auto;
   }
 
+  .heading{
+    font-size: 30px;
+  }
+
   .rowTwo {
       grid-template-columns: 1fr;
   }
 
   .formCard {
       padding: 24px 16px;
-  }
-
-  .heading {
-      font-size: 1.5rem;
   }
 }
