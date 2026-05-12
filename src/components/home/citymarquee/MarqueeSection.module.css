@@ -5,13 +5,14 @@
   box-sizing: border-box;
   border-top: 1px solid #ebebeb;
   border-bottom: 1px solid #ebebeb;
-  background: linear-gradient(
+  /* background: linear-gradient(
   to bottom right,
   #000000 0%,
   #000000 30%,
   #7e7e7e 70%,
   #7e7e7e 100%
-);
+); */
+  background: #000;
 }
 
 .marquee {
@@ -35,8 +36,13 @@
 }
 
 @keyframes scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* ── City item ── */
@@ -78,19 +84,19 @@
 /* ── Mobile ── */
 @media (max-width: 640px) {
   .cityItem {
-      padding: 0 24px;
-      font-size: 1rem;
+    padding: 0 24px;
+    font-size: 1rem;
   }
 
   .logoItem {
-      padding: 0 24px;
+    padding: 0 24px;
   }
 
   .logo {
-      height: 24px;
+    height: 24px;
   }
 
   .track {
-      animation-duration: 20s;
+    animation-duration: 20s;
   }
 }

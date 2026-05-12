@@ -62,9 +62,9 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #bd8338;
-  color: #ffffff;
-  border: none;
+  background: #00000000;
+  color: #bd8338;
+  border: 2px solid #bd8338;
   cursor: pointer;
   padding: 11px 20px;
   border-radius: 40px;
@@ -78,6 +78,8 @@
 .waBtn:hover {
   background: #25D366;
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  border: 2px solid #25D366;
+  color: #ffffff;
 }
 
 .waIcon {

@@ -353,7 +353,7 @@
     }
 
     .logo :global(img) {
-        width: 180px !important;
+        width: 100px !important;
         margin: 0 auto;
     }
 

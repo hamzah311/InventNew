@@ -6,7 +6,7 @@ import styles from "./FeatureSection.module.css";
 const FEATURES_DEFAULT = [
     {
         label: "Silent and smooth operation",
-        imageSrc: "/images/features/silent.jpg",
+        imageSrc: "/images/features/silent.png",
         imageAlt: "Silent and smooth elevator operation",
         subheading: "Designed for modern villas. \nEngineered for everyday comfort.",
         description: "We specialize in lift solutions for private villas and premium residences across the UAE..",
