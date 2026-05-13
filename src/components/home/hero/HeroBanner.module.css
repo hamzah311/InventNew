@@ -176,29 +176,111 @@
 }
 
 /* ── Mobile ── */
+/* ── Mobile Responsive ── */
 @media (max-width: 768px) {
     .wrapper {
-        min-height: 50dvh;
+        min-height: 100svh;
         height: auto;
+        padding: 80px 0 40px;
     }
 
     .inner {
-        top: 80px;
+        top: 0;
         padding: 0 20px;
+    }
+
+    .content {
+        width: 100%;
+        gap: 18px;
+    }
+
+    .cyclingTitle {
+        width: 100%;
+        gap: 8px;
+    }
+
+    .staticLine {
+        font-size: clamp(2rem, 9vw, 3rem);
+        line-height: 1.1;
+        letter-spacing: -1px;
+        white-space: normal;
+    }
+
+    .cyclingWord {
+        font-size: clamp(2.8rem, 14vw, 5rem);
+        line-height: 0.95;
+        letter-spacing: -2px;
+        margin-top: 4px;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        max-width: 95%;
+    }
+
+    .ctaBtn {
+        margin-top: 40px;
+        font-size: 0.78rem;
+        padding: 0.3rem;
+    }
+
+    .ctaArrow {
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
+    }
+}
+
+/* ── Small iPhones ── */
+@media (max-width: 480px) {
+    .wrapper {
+        min-height: 100svh;
+        padding: 90px 0 40px;
+    }
+
+    .inner {
+        padding: 0 16px;
     }
 
     .content {
         gap: 16px;
     }
 
-    .cyclingTitle {
-        font-size: 50px;
-        gap: 0 10px;
+    .staticLine {
+        font-size: clamp(1.8rem, 10vw, 2.6rem);
+        line-height: 1.12;
+    }
+
+    .cyclingWord {
+        font-size: clamp(3rem, 15vw, 4.5rem);
+        line-height: 0.92;
+        margin-top: 6px;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+        line-height: 1.55;
+    }
+
+    .ctaBtn {
+        font-size: 0.72rem;
+    }
+
+    .ctaArrow {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* ── iPhone SE / very small screens ── */
+@media (max-width: 375px) {
+    .inner {
+        padding: 0 14px;
     }
 
     .staticLine {
-        font-size: 45px;
-        white-space: normal;
+        font-size: 1.7rem;
     }
 
     .cyclingWord {
@@ -206,21 +288,6 @@
     }
 
     .subtitle {
-        font-size: 1rem;
-    }
-
-    .ctaBtn {
-        font-size: 0.75rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .staticLine {
-        font-size: 45px;
-    }
-
-    .cyclingWord {
-        margin-top: 10px;
-        font-size: 50px;
+        font-size: 0.85rem;
     }
 }
