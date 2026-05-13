@@ -48,7 +48,7 @@ export default function AboutSection({ data }: AboutSectionProps) {
   };
 
   return (
-    <section className={styles.wrapper}>
+    <section id="about" className={styles.wrapper}>
       <div className={styles.inner}>
         {/* LEFT — Image */}
         <div className={styles.imageBox}>

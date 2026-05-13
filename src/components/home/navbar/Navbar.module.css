@@ -7,7 +7,6 @@
     z-index: 1000;
     display: flex;
     justify-content: center;
-    /* padding: 40px; */
     box-sizing: border-box;
 }
 
@@ -20,15 +19,11 @@
 .navbar {
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
     width: 100%;
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    /* border: 1px solid rgba(255, 255, 255, 0.2); */
-    /* border-radius: 40px; */
-    padding: 30px 60px 30px 60px;
+    padding: 20px 60px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
@@ -40,6 +35,7 @@
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
+/* ── Logo ───────────────────────────── */
 .logoContainer {
     display: flex;
     align-items: center;
@@ -58,8 +54,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     flex-shrink: 0;
 }
 
@@ -71,6 +67,7 @@
     margin-top: 5px;
 }
 
+/* ── Brand Text ─────────────────────── */
 .logoText {
     display: flex;
     flex-direction: column;
@@ -79,7 +76,6 @@
 
 .brandName {
     font-family: 'Times New Roman', Times, serif;
-    /* Replace with actual serif if loaded */
     font-size: 1.25rem;
     font-weight: 600;
     color: #E5B869;
@@ -95,6 +91,7 @@
     line-height: 1.1;
 }
 
+/* ── Desktop Nav ────────────────────── */
 .navLinks {
     display: flex;
     align-items: center;
@@ -115,78 +112,16 @@
     display: flex;
     align-items: center;
     gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .link:hover {
     color: #e2af39;
 }
 
-.dropdown {
-    cursor: pointer;
-    position: relative;
-}
-
-.dropdownMenu {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background: rgba(30, 30, 30, 0.97);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
-    padding: 12px 0;
-    min-width: 220px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-}
-
-/* Need padding to bridge the gap between hover link and menu so it doesn't close */
-.dropdown::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 20px;
-}
-
-.dropdown:hover .dropdownMenu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(20px);
-}
-
-.dropdownItem {
-    color: #e6e6e6;
-    text-decoration: none;
-    padding: 10px 24px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    display: block;
-}
-
-.dropdownItem:hover {
-    background: rgba(255, 255, 255, 0.08);
-    color: #E5B869;
-}
-
-.chevron {
-    display: inline-flex;
-    align-items: center;
-    transition: transform 0.3s ease;
-}
-
-.dropdown:hover .chevron {
-    transform: rotate(180deg);
-}
-
+/* ── CTA ────────────────────────────── */
 .actions {
     display: flex;
     align-items: center;
@@ -205,6 +140,7 @@
     font-weight: 600;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .quoteBtn:hover {
@@ -224,6 +160,7 @@
     color: #1a1a1a;
 }
 
+/* ── Mobile Menu Button ─────────────── */
 .mobileMenuBtn {
     display: none;
     background: none;
@@ -238,11 +175,12 @@
     transform: scale(0.95);
 }
 
+/* ── Mobile Menu ────────────────────── */
 .mobileMenu {
     display: none;
 }
 
-/* Mobile Responsiveness */
+/* ── Mobile Responsive ──────────────── */
 @media (max-width: 1024px) {
 
     .navLinks,
@@ -252,47 +190,41 @@
 
     .mobileMenuBtn {
         display: block;
+        margin-left: auto;
+        z-index: 10;
     }
 
     .headerWrapper {
-        padding: 0px;
         top: 36px;
     }
 
-    
     .navbar {
         display: flex;
+        align-items: center;
         justify-content: space-between;
-      }
-
-      .logoIcon {
-
-        width: 70px;
-
-        height: 70px;
-
+        padding: 18px 20px;
+        position: relative;
     }
 
-    .navbar {
-
-        padding: 25px 20px;
-
-    }
-
-    .logoLink {
-
-        height: auto;
-
-        margin-bottom: 0;
-
-    }
-
+    /* ── Perfect centered logo ── */
     .logoContainer {
         position: absolute;
         left: 50%;
-        transform: translateX(-50%);
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 
+    .logoLink {
+        height: auto;
+        margin-bottom: 0;
+    }
+
+    .logoIcon {
+        width: 70px;
+        height: 70px;
+    }
+
+    /* ── Mobile Dropdown ── */
     .mobileMenu {
         display: flex;
         flex-direction: column;
@@ -300,18 +232,24 @@
         top: 100%;
         left: 0;
         right: 0;
-        margin-top: 12px;
+
+        margin: 10px;
+        padding: 24px;
+
         background: rgba(30, 30, 30, 0.95);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
+
         border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 24px;
-        padding: 24px;
-        margin: 10px;
+
         opacity: 0;
         visibility: hidden;
+
         transform: translateY(-10px) scale(0.98);
+
         transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
     }
 
@@ -325,6 +263,7 @@
         list-style: none;
         padding: 0;
         margin: 0 0 24px 0;
+
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -335,71 +274,49 @@
         text-decoration: none;
         font-size: 1.1rem;
         font-weight: 500;
+
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
+
         width: 100%;
-        transition: color 0.3s ease;
+
         background: none;
         border: none;
+
         padding: 0;
+
         text-align: left;
+        cursor: pointer;
+
+        transition: color 0.3s ease;
     }
 
     .mobileLink:hover {
         color: #ffffff;
     }
 
-    .mobileSubLinksWrapper {
-        display: grid;
-        grid-template-rows: 0fr;
-        transition: grid-template-rows 0.3s ease-out;
-    }
-
-    .mobileSubLinksWrapperOpen {
-        grid-template-rows: 1fr;
-    }
-
-    .mobileSubLinks {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        padding-left: 16px;
-        margin-top: 0;
-        border-left: 1px solid rgba(255, 255, 255, 0.15);
-        overflow: hidden;
-        transition: margin-top 0.3s ease-out;
-    }
-
-    .mobileSubLinksWrapperOpen .mobileSubLinks {
-        margin-top: 16px;
-    }
-
-    .mobileSubLink {
-        color: #b3b3b3;
-        text-decoration: none;
-        font-size: 1rem;
-        font-weight: 400;
-        transition: color 0.3s ease;
-        display: block;
-    }
-
-    .mobileSubLink:hover {
-        color: #E5B869;
-    }
-
+    /* ── Mobile CTA ── */
     .mobileQuoteBtn {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
+
         background: #E5B869;
         color: #1a1a1a;
+
         text-decoration: none;
+
         padding: 14px 24px;
         border-radius: 40px;
+
         font-weight: 600;
         font-size: 1rem;
+
+        border: none;
+        cursor: pointer;
+
         transition: background 0.3s ease;
     }
 

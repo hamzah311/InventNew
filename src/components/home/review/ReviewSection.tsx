@@ -128,7 +128,7 @@ export default function ReviewsSection({ data }: ReviewsSectionProps) {
   }, [reviews.length]);
 
   return (
-    <section className={styles.wrapper}>
+    <section id="testimonials" className={styles.wrapper}>
 
       {/* Heading */}
       <div className={styles.headingBlock}>

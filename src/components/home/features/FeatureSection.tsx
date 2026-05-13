@@ -93,7 +93,7 @@ export default function FeaturesSection({ data }: FeaturesSectionProps) {
     const active = features[activeIndex];
 
     return (
-        <section className={styles.wrapper}>
+        <section id="features" className={styles.wrapper}>
 
             {/* Section heading */}
             <div className={styles.headingRow}>

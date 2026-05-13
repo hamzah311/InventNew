@@ -69,7 +69,7 @@ export default function FaqContact() {
   };
 
   return (
-    <section className={styles.section}>
+    <section id="faqs" className={styles.section}>
       <div className={styles.inner}>
         {/* ── Left: FAQ ── */}
         <div className={styles.faqSide}>

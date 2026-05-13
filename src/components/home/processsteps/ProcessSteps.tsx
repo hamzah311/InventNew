@@ -85,7 +85,7 @@ export default function ProcessSteps({ data }: ProcessStepsProps) {
     const steps      = data?.steps      ?? STEPS_DEFAULT;
 
     return (
-        <section className={styles.wrapper}>
+        <section id="process" className={styles.wrapper}>
 
             {/* Heading */}
             <div className={styles.headingBlock}>

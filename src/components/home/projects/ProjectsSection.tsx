@@ -101,7 +101,7 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
   };
 
   return (
-    <section className={styles.wrapper}>
+    <section id="projects" className={styles.wrapper}>
       {/* Top row: heading + description + CTA */}
       <div className={styles.topRow}>
         <div className={styles.topLeft}>

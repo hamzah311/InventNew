@@ -53,7 +53,8 @@ export default function Home() {
       <Slider data={LIFT_DATA[current_theme]} />
       <HSection data={LIFE_HERO_SECTION[current_theme]} />
       <Designed data={DESIGNED_SPACES_HERO[current_theme]} />
-      <Testimonial data={TESTIMONIAL[current_theme]} /> */}
+      <Testimonial data={TESTIMONIAL[current_theme]} /> 
+        */}
       <ReviewSection />
       <FaqContact />
       <ContactBanner />

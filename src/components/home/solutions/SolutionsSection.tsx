@@ -53,7 +53,7 @@ export default function SolutionsSection({ data }: SolutionsSectionProps) {
     const solutions = data?.solutions ?? SOLUTIONS_DEFAULT;
 
     return (
-        <section className={styles.wrapper}>
+        <section id="solutions" className={styles.wrapper}>
 
             {/* Heading row — left-aligned with line on the right */}
             <div className={styles.headingRow}>

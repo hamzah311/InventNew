@@ -38,7 +38,7 @@ export default function SeriesSection({ data }: SeriesSectionProps) {
   const series = data?.series ?? SERIES_DEFAULT;
 
   return (
-    <section className={styles.wrapper}>
+    <section id="series" className={styles.wrapper}>
       {/* Section heading with lines */}
       <div className={styles.headingRow}>
         <span className={styles.line} />
