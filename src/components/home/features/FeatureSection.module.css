@@ -11,8 +11,6 @@
   margin: 0 auto 48px;
 }
 
-
-
 .heading {
   font-family: var(--font-verah);
   font-size: 34px;
@@ -34,9 +32,7 @@
 /* LEFT — Image */
 .imageBox {
   flex: 0 0 44%;
-  /* border-radius: 16px; */
   overflow: hidden;
-  /* aspect-ratio: 3 / 4; */
   height: auto;
   display: flex;
 }
@@ -47,7 +43,7 @@
   flex: 1;
   object-fit: cover;
   display: block;
-  /* border-radius: 16px; */
+  animation: fadeIn 0.4s ease;
 }
 
 /* RIGHT — Content */
@@ -100,7 +96,6 @@
   align-items: center;
   gap: 14px;
   padding: 14px 20px;
-  /* border-radius: 10px; */
   background: #fdf8f0;
   cursor: pointer;
   transition: background 0.2s ease;
@@ -153,6 +148,11 @@
   }
 }
 
+/* ── Mobile accordion — hidden on desktop ── */
+.mobileList {
+  display: none;
+}
+
 /* ── Tablet ── */
 @media (max-width: 1024px) {
   .inner {
@@ -170,15 +170,6 @@
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
-  .inner {
-      flex-direction: column;
-  }
-
-  .imageBox {
-      flex: none;
-      width: 100%;
-      aspect-ratio: 4 / 3;
-  }
 
   .wrapper {
       padding: 36px 16px;
@@ -188,5 +179,90 @@
       white-space: normal;
       text-align: center;
       font-size: 30px;
+  }
+
+  /* Hide desktop layout */
+  .inner {
+      display: none;
+  }
+
+  /* Show mobile accordion */
+  .mobileList {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+  }
+
+  .mobileItem {
+      display: flex;
+      flex-direction: column;
+  }
+
+  /* Tab row */
+  .mobileTab {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      height: 60px;
+      background: #fdf8f0;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.2s ease;
+      user-select: none;
+      box-sizing: border-box;
+  }
+
+  .mobileTab:hover {
+      background: #f5ede0;
+  }
+
+  .mobileTabActive {
+      background: #1a1a1a !important;
+  }
+
+  .mobileTabActive .chevron {
+      color: #E5B869;
+  }
+
+  .mobileTabActive .featureText {
+      color: #ffffff;
+  }
+
+  /* Expanded content below the tab */
+  .mobileExpanded {
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 0.35s ease;
+      background: #fafafa;
+      border: 1px solid #ebebeb;
+      border-top: none;
+  }
+
+  .mobileImage {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+  }
+
+  .mobileTextBlock {
+      padding: 20px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .mobileTextBlock .subheading {
+      font-size: 20px;
+  }
+
+  .mobileTextBlock .description {
+      font-size: 15px;
   }
 }

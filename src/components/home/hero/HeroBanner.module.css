@@ -6,7 +6,7 @@
     position: relative;
     width: 100%;
     height: 100dvh;
-    overflow: hidden;
+    overflow: clip; /* clip avoids stacking context that breaks fixed children on iOS */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,6 +20,10 @@
     object-fit: cover;
     object-position: center;
     display: block;
+    /* iOS Safari: force hardware acceleration for video */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .overlay {

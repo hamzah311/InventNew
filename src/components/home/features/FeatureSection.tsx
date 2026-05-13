@@ -95,17 +95,17 @@ export default function FeaturesSection({ data }: FeaturesSectionProps) {
     return (
         <section className={styles.wrapper}>
 
-            {/* Section heading with lines */}
+            {/* Section heading */}
             <div className={styles.headingRow}>
                 <span className={styles.line} />
                 <h2 className={styles.heading}>{heading}</h2>
                 <span className={styles.line} />
             </div>
 
-            {/* Main content */}
+            {/* ── DESKTOP layout ── */}
             <div className={styles.inner}>
 
-                {/* LEFT — Image (changes with active tab) */}
+                {/* LEFT — Image */}
                 <div className={styles.imageBox}>
                     <img
                         key={activeIndex}
@@ -117,8 +117,6 @@ export default function FeaturesSection({ data }: FeaturesSectionProps) {
 
                 {/* RIGHT — Text + feature list */}
                 <div className={styles.content}>
-
-                    {/* Subheading + description (changes with active tab) */}
                     <div className={styles.textBlock} key={activeIndex}>
                         <h3 className={styles.subheading}>
                             {active.subheading.split("\n").map((line, i, arr) => (
@@ -131,7 +129,6 @@ export default function FeaturesSection({ data }: FeaturesSectionProps) {
                         <p className={styles.description}>{active.description}</p>
                     </div>
 
-                    {/* Feature list */}
                     <ul className={styles.featureList}>
                         {features.map((feature, index) => (
                             <li
@@ -144,9 +141,48 @@ export default function FeaturesSection({ data }: FeaturesSectionProps) {
                             </li>
                         ))}
                     </ul>
-
                 </div>
             </div>
+
+            {/* ── MOBILE layout — accordion style ── */}
+            <ul className={styles.mobileList}>
+                {features.map((feature, index) => (
+                    <li key={index} className={styles.mobileItem}>
+
+                        {/* Tab row */}
+                        <button
+                            className={`${styles.mobileTab} ${activeIndex === index ? styles.mobileTabActive : ""}`}
+                            onClick={() => setActiveIndex(index === activeIndex ? -1 : index)}
+                        >
+                            <span className={styles.chevron}>‹</span>
+                            <span className={styles.featureText}>{feature.label}</span>
+                        </button>
+
+                        {/* Expandable content below the tab */}
+                        {activeIndex === index && (
+                            <div className={styles.mobileExpanded} key={index}>
+                                <img
+                                    src={feature.imageSrc}
+                                    alt={feature.imageAlt}
+                                    className={styles.mobileImage}
+                                />
+                                <div className={styles.mobileTextBlock}>
+                                    <h3 className={styles.subheading}>
+                                        {feature.subheading.split("\n").map((line, i, arr) => (
+                                            <span key={i}>
+                                                {line}
+                                                {i < arr.length - 1 && <br />}
+                                            </span>
+                                        ))}
+                                    </h3>
+                                    <p className={styles.description}>{feature.description}</p>
+                                </div>
+                            </div>
+                        )}
+                    </li>
+                ))}
+            </ul>
+
         </section>
     );
 }
