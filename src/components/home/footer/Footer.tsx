@@ -73,7 +73,15 @@ export default function Footer() {
     "Our Products",
     "About Us",
   ];
-  const moreLinks = ["Projects", "Blogs", "Help Disk", "Contact", "Gallery"];
+
+  const moreLinks = [
+    "Projects",
+    "Blogs",
+    "Help Disk",
+    "Contact",
+    "Gallery",
+  ];
+
   const locations = [
     "Abu Dhabi",
     "Sharjah",
@@ -93,10 +101,12 @@ export default function Footer() {
           quality={85}
         />
       </div>
+
       <div className={styles.overlay} />
 
       <div className={styles.container}>
         <div className={styles.grid}>
+
           {/* Brand Column */}
           <div className={styles.brandCol}>
             <div className={styles.logo}>
@@ -108,16 +118,12 @@ export default function Footer() {
                 style={{ objectFit: "contain", objectPosition: "left" }}
               />
             </div>
+
             <p className={styles.tagline}>
               Well-Designed Spaces That Combine Comfort, Elegance, And A
               Peaceful Setting
             </p>
-            {/* <Link href="/quote" className={styles.quoteBtn}>
-                            <span className={styles.quoteBtnText}>Get a Free Quote</span>
-                            <span className={styles.arrowCircle}>
-                                <ArrowIcon />
-                            </span>
-                        </Link> */}
+
             <Link
               href="#"
               className={styles.quoteBtn}
@@ -129,7 +135,9 @@ export default function Footer() {
                 });
               }}
             >
-              <span className={styles.quoteBtnText}>Get a Free Quote</span>
+              <span className={styles.quoteBtnText}>
+                Get a Free Quote
+              </span>
 
               <span className={styles.arrowCircle}>
                 <ArrowIcon />
@@ -142,12 +150,9 @@ export default function Footer() {
             <ul className={styles.linkList}>
               {navLinks.map((link) => (
                 <li key={link}>
-                  <Link
-                    href={`/${link.toLowerCase().replace(/\s+/g, "-")}`}
-                    className={styles.navLink}
-                  >
+                  <span className={styles.navLink}>
                     {link}
-                  </Link>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -158,12 +163,9 @@ export default function Footer() {
             <ul className={styles.linkList}>
               {moreLinks.map((link) => (
                 <li key={link}>
-                  <Link
-                    href={`/${link.toLowerCase().replace(/\s+/g, "-")}`}
-                    className={styles.navLink}
-                  >
+                  <span className={styles.navLink}>
                     {link}
-                  </Link>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -177,7 +179,10 @@ export default function Footer() {
                   <span className={styles.pinIcon}>
                     <LocationPinIcon />
                   </span>
-                  <span className={styles.cityName}>{city}</span>
+
+                  <span className={styles.cityName}>
+                    {city}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -185,23 +190,39 @@ export default function Footer() {
 
           {/* Contact Column */}
           <div className={styles.contactCol}>
-            <h3 className={styles.contactTitle}>Contact Us</h3>
-            <a href="tel:+971523753356" className={styles.phone}>
+            <h3 className={styles.contactTitle}>
+              Contact Us
+            </h3>
+
+            <span className={styles.phone}>
               +971 52 375 3356
-            </a>
-            <a href="mailto:info@inventelevator.com" className={styles.email}>
+            </span>
+
+            <span className={styles.email}>
               info@inventelevator.com
-            </a>
+            </span>
+
             <div className={styles.socialRow}>
-              <a href="#" className={styles.socialIcon} aria-label="Instagram">
+              <span
+                className={styles.socialIcon}
+                aria-label="Instagram"
+              >
                 <InstagramIcon />
-              </a>
-              <a href="#" className={styles.socialIcon} aria-label="X">
+              </span>
+
+              <span
+                className={styles.socialIcon}
+                aria-label="X"
+              >
                 <XIcon />
-              </a>
-              <a href="#" className={styles.socialIcon} aria-label="Facebook">
+              </span>
+
+              <span
+                className={styles.socialIcon}
+                aria-label="Facebook"
+              >
                 <FacebookIcon />
-              </a>
+              </span>
             </div>
           </div>
         </div>
