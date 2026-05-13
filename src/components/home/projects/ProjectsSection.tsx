@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "./ProjectsSection.module.css";
 
 const PROJECTS_DEFAULT = [
@@ -68,82 +68,140 @@ const ArrowIcon = () => (
   </svg>
 );
 
-export default function ProjectsSection({ data }: ProjectsSectionProps) {
+export default function ProjectsSection({
+  data,
+}: ProjectsSectionProps) {
   const [activeSlide, setActiveSlide] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
 
   const heading = data?.heading ?? "Projects";
+
   const description =
     data?.description ??
     "Explore our bespoke home lift installations, crafted to combine precision engineering, seamless mobility, and refined design for modern luxury living.";
+
   const buttonText = data?.buttonText ?? "Get a free quote";
+
   const buttonHref = data?.buttonHref ?? "/quote";
+
   const projects = data?.projects ?? PROJECTS_DEFAULT;
+
+  // AUTO SLIDE
+  useEffect(() => {
+    const track = trackRef.current;
+
+    if (!track) return;
+
+    const interval = setInterval(() => {
+      const nextSlide =
+        activeSlide === projects.length - 1
+          ? 0
+          : activeSlide + 1;
+
+      setActiveSlide(nextSlide);
+
+      const card = track.children[nextSlide] as HTMLElement;
+
+      if (card) {
+        track.scrollTo({
+          left: card.offsetLeft - 40,
+          behavior: "smooth",
+        });
+      }
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [activeSlide, projects.length]);
 
   const handleDotClick = (index: number) => {
     setActiveSlide(index);
+
     const track = trackRef.current;
+
     if (!track) return;
+
     const card = track.children[index] as HTMLElement;
+
     if (card) {
-      track.scrollTo({ left: card.offsetLeft - 40, behavior: "smooth" });
+      track.scrollTo({
+        left: card.offsetLeft - 40,
+        behavior: "smooth",
+      });
     }
   };
 
   const handleScroll = () => {
     const track = trackRef.current;
+
     if (!track) return;
+
     const scrollLeft = track.scrollLeft;
-    const cardWidth = (track.children[0] as HTMLElement)?.offsetWidth ?? 0;
+
+    const cardWidth =
+      (track.children[0] as HTMLElement)?.offsetWidth ?? 0;
+
     const gap = 24;
-    const index = Math.round(scrollLeft / (cardWidth + gap));
-    setActiveSlide(Math.min(index, projects.length - 1));
+
+    const index = Math.round(
+      scrollLeft / (cardWidth + gap)
+    );
+
+    setActiveSlide(
+      Math.min(index, projects.length - 1)
+    );
   };
 
   return (
     <section id="projects" className={styles.wrapper}>
-      {/* Top row: heading + description + CTA */}
+      {/* Top row */}
       <div className={styles.topRow}>
         <div className={styles.topLeft}>
-            <h2 className={styles.heading}>{heading}</h2>
-            <span className={styles.line} />
+          <h2 className={styles.heading}>{heading}</h2>
+
+          <span className={styles.line} />
         </div>
 
         <div className={styles.bottomPart}>
-          <p className={styles.description}>{description}</p>
-          {/* <a href={buttonHref} className={styles.ctaBtn}>
-            <span className={styles.ctaText}>{buttonText}</span>
-            <span className={styles.ctaArrow}>↗</span>
-          </a> */}
+          <p className={styles.description}>
+            {description}
+          </p>
+
           <a
-  href="#"
-  className={styles.ctaBtn}
-  onClick={(e) => {
-    e.preventDefault();
+            href={buttonHref}
+            className={styles.ctaBtn}
+            onClick={(e) => {
+              e.preventDefault();
 
-    document
-      .getElementById("contact-banner")
-      ?.scrollIntoView({
-        behavior: "smooth",
-      });
-  }}
->
-  <span className={styles.ctaText}>
-    {buttonText}
-  </span>
+              document
+                .getElementById("contact-banner")
+                ?.scrollIntoView({
+                  behavior: "smooth",
+                });
+            }}
+          >
+            <span className={styles.ctaText}>
+              {buttonText}
+            </span>
 
-  {/* <span className={styles.ctaArrow}>↗</span> */}
-  <span className={styles.arrowCircle}>
-                <ArrowIcon />
-              </span>
-</a>
+            <span className={styles.arrowCircle}>
+              <ArrowIcon />
+            </span>
+          </a>
         </div>
       </div>
 
-      {/* Carousel track */}
-      <div className={styles.track} ref={trackRef} onScroll={handleScroll}>
+      {/* Carousel */}
+      <div
+        className={styles.track}
+        ref={trackRef}
+        onScroll={handleScroll}
+      >
         {projects.map((project) => (
-          <a key={project.index} href={project.href} className={styles.card}>
+          <a
+            key={project.index}
+            href={project.href}
+            className={styles.card}
+          >
             <div className={styles.imageBox}>
               <img
                 src={project.imageSrc}
@@ -151,21 +209,26 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
                 className={styles.image}
               />
             </div>
+
             <p className={styles.cardLabel}>
-              <span className={styles.cardIndex}>{project.index} -</span>{" "}
+              <span className={styles.cardIndex}>
+                {project.index} -
+              </span>{" "}
               {project.title}
             </p>
           </a>
         ))}
       </div>
 
-      {/* Dot indicators */}
+      {/* Dots */}
       <div className={styles.dots}>
         {projects.map((_, index) => (
           <button
             key={index}
             className={`${styles.dot} ${
-              activeSlide === index ? styles.dotActive : ""
+              activeSlide === index
+                ? styles.dotActive
+                : ""
             }`}
             onClick={() => handleDotClick(index)}
             aria-label={`Go to project ${index + 1}`}
