@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import styles from "./HeroBanner.module.css";
+import VideoBackground from "./VideoBackground";
 
 const CYCLING_WORDS = [
   "affordable",
@@ -83,30 +84,9 @@ export default function HeroBanner({
 }: HeroBannerProps) {
   return (
     <div className={styles.wrapper}>
-      {/* Background video */}
-      {/* <video
-        className={styles.bgVideo}
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster={videoPoster}
-        preload="metadata"
-      >
-        <source src={videoSrc} type="video/mp4" />
-      </video> */}
-      <video
-        className={styles.bgVideo}
-        autoPlay
-        muted
-        loop
-        playsInline
-        webkit-playsinline="true"
-        preload="auto"
-        poster={videoPoster}
-      >
-        <source src={videoSrc} type="video/mp4" />
-      </video>
+
+      {/* Background video — iOS-safe component */}
+      <VideoBackground src={videoSrc} poster={videoPoster} />
 
       {/* Overlay */}
       <div className={styles.overlay} />
@@ -141,7 +121,6 @@ export default function HeroBanner({
             }}
           >
             <span className={styles.ctaText}>{data.hero.buttonText}</span>
-            {/* <span className={styles.ctaArrow}>↗</span> */}
             <span className={styles.arrowCircle}>
               <ArrowIcon />
             </span>
