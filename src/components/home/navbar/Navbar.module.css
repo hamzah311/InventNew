@@ -275,7 +275,7 @@
 
     .navbar {
 
-        padding: 8px 20px;
+        padding: 25px 20px;
 
     }
 
@@ -285,6 +285,12 @@
 
         margin-bottom: 0;
 
+    }
+
+    .logoContainer {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .mobileMenu {

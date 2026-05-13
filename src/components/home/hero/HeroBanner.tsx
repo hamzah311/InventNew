@@ -84,7 +84,7 @@ export default function HeroBanner({
   return (
     <div className={styles.wrapper}>
       {/* Background video */}
-      <video
+      {/* <video
         className={styles.bgVideo}
         autoPlay
         muted
@@ -93,7 +93,18 @@ export default function HeroBanner({
         poster={videoPoster}
         preload="metadata"
       >
-        {/* H.264 MP4 required for iOS Safari autoplay */}
+        <source src={videoSrc} type="video/mp4" />
+      </video> */}
+      <video
+        className={styles.bgVideo}
+        autoPlay
+        muted
+        loop
+        playsInline
+        webkit-playsinline="true"
+        preload="auto"
+        poster={videoPoster}
+      >
         <source src={videoSrc} type="video/mp4" />
       </video>
 
