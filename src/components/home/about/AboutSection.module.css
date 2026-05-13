@@ -110,6 +110,22 @@
   transition: background 0.2s ease;
 }
 
+.arrowCircle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  transform: rotate(-45deg);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
 /* Tablet */
 @media (max-width: 1024px) {
   .inner {

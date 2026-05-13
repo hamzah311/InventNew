@@ -58,14 +58,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 140px;
-    height: auto;
+    width: 90px;
+    height: 90px;
     flex-shrink: 0;
 }
 
 .logoIcon img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: contain;
     display: block;
 }
@@ -266,9 +266,25 @@
         justify-content: space-between;
       }
 
-    .logoIcon {
+      .logoIcon {
 
-        width: 110px;
+        width: 70px;
+
+        height: 70px;
+
+    }
+
+    .navbar {
+
+        padding: 18px 20px;
+
+    }
+
+    .logoLink {
+
+        height: auto;
+
+        margin-bottom: 0;
 
     }
 

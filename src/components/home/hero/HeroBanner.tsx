@@ -59,6 +59,22 @@ interface HeroBannerProps {
   data: any;
 }
 
+const ArrowIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <line x1="5" y1="12" x2="19" y2="12" />
+    <polyline points="12 5 19 12 12 19" />
+  </svg>
+);
+
 export default function HeroBanner({
   videoSrc = "/video-1.mp4",
   videoPoster = "",
@@ -113,7 +129,10 @@ export default function HeroBanner({
             }}
           >
             <span className={styles.ctaText}>{data.hero.buttonText}</span>
-            <span className={styles.ctaArrow}>↗</span>
+            {/* <span className={styles.ctaArrow}>↗</span> */}
+            <span className={styles.arrowCircle}>
+                <ArrowIcon />
+              </span>
           </button>
 
         </div>
