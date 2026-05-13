@@ -38,8 +38,7 @@ function CyclingTitle({
 
   return (
     <h1 className={styles.cyclingTitle}>
-      <span className={styles.staticLine}>{staticLine}</span>
-      {" "}
+      <span className={styles.staticLine}>{staticLine}</span>{" "}
       <span
         className={`${styles.cyclingWord} ${
           animating ? styles.wordExit : styles.wordEnter
@@ -93,6 +92,8 @@ export default function HeroBanner({
         muted
         loop
         playsInline
+        preload="auto"
+        webkit-playsinline="true"
       />
 
       {/* Overlay */}
@@ -101,7 +102,6 @@ export default function HeroBanner({
       {/* Center content */}
       <div className={styles.inner}>
         <div className={styles.content}>
-
           {title ?? (
             <CyclingTitle
               staticLine={data.hero.Heading}
@@ -131,10 +131,9 @@ export default function HeroBanner({
             <span className={styles.ctaText}>{data.hero.buttonText}</span>
             {/* <span className={styles.ctaArrow}>↗</span> */}
             <span className={styles.arrowCircle}>
-                <ArrowIcon />
-              </span>
+              <ArrowIcon />
+            </span>
           </button>
-
         </div>
       </div>
     </div>
