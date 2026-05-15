@@ -195,7 +195,6 @@ const NAV_LINKS = [
     { name: "Series", id: "series" },
     { name: "Process", id: "process" },
     { name: "Features", id: "features" },
-    { name: "Solutions", id: "solutions" },
     { name: "Projects", id: "projects" },
     { name: "Testimonials", id: "testimonials" },
     { name: "FAQs", id: "faqs" },
