@@ -66,10 +66,8 @@ export default function ContactForm({ data }: ContactFormProps) {
             className={styles.select}
           >
             <option value="">Select Service</option>
-            <option value="Home Lift">Lift 1</option>
-            <option value="Glass Elevator">Lift 2</option>
-            <option value="Maintenance">Lift 3</option>
-            <option value="Consultation">Lift 4</option>
+            <option value="Home Lift">Home Lift</option>
+            <option value="Villa Lift">Villa Lift</option>
           </select>
 
           

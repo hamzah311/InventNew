@@ -6,31 +6,38 @@ import styles from "./ProjectsSection.module.css";
 const PROJECTS_DEFAULT = [
   {
     index: "01",
-    title: "Dubai Hills DH215",
-    imageSrc: "/images/projects/project-1.jpg",
-    imageAlt: "Dubai Hills DH215 project",
-    href: "/projects/dubai-hills-dh215",
+    title: "Dubai Hills Villa Residence",
+    imageSrc: "/images/projects/_DSC5734.jpg",
+    imageAlt: "Luxury home lift installation at Dubai Hills villa",
+    href: "/projects/dubai-hills-villa-residence",
   },
   {
     index: "02",
-    title: "Dubai Hills DH215",
-    imageSrc: "/images/projects/project-2.jpg",
-    imageAlt: "Dubai Hills DH215 project",
-    href: "/projects/dubai-hills-dh215-2",
+    title: "Modern Home Lift Installation",
+    imageSrc: "/images/projects/_DSC6621.jpg",
+    imageAlt: "Modern residential lift project in Dubai Hills",
+    href: "/projects/modern-home-lift-installation",
   },
   {
     index: "03",
-    title: "Dubai Hills DH215",
-    imageSrc: "/images/projects/project-3.jpg",
-    imageAlt: "Dubai Hills DH215 project",
-    href: "/projects/dubai-hills-dh215-3",
+    title: "Premium Villa Elevator",
+    imageSrc: "/images/projects/_DSC5738.jpg",
+    imageAlt: "Premium home elevator project at Dubai Hills",
+    href: "/projects/premium-villa-elevator",
   },
   {
     index: "04",
-    title: "Dubai Hills DH215",
-    imageSrc: "/images/projects/project-4.jpg",
-    imageAlt: "Dubai Hills DH215 project",
-    href: "/projects/dubai-hills-dh215-4",
+    title: "Contemporary Home Lift",
+    imageSrc: "/images/projects/_DSC6628.jpg",
+    imageAlt: "Contemporary luxury lift installation project",
+    href: "/projects/contemporary-home-lift",
+  },
+  {
+    index: "05",
+    title: "Luxury Residential Elevator",
+    imageSrc: "/images/projects/_DSC5891.jpg",
+    imageAlt: "Luxury residential elevator installation",
+    href: "/projects/luxury-residential-elevator",
   },
 ];
 
@@ -78,7 +85,7 @@ export default function ProjectsSection({
 
   const description =
     data?.description ??
-    "Explore our bespoke home lift installations, crafted to combine precision engineering, seamless mobility, and refined design for modern luxury living.";
+    "Discover our premium home lift projects, designed for smooth mobility, modern elegance, and everyday comfort.";
 
   const buttonText = data?.buttonText ?? "Get a free quote";
 

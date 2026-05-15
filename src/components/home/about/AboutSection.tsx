@@ -5,7 +5,7 @@ import styles from "./AboutSection.module.css";
 const ABOUT_DEFAULT = {
   heading: "About Invent",
   description:
-    "Welcome to Invent, where innovation meets refined living. We design intelligent home lift solutions that combine advanced engineering with elegant aesthetics. Our approach focuses on creating seamless mobility experiences that integrate effortlessly into modern homes.",
+    "Welcome to Invent, where modern design meets smart living. We create stylish and reliable home lifts with advanced technology for smooth and comfortable movement in your home.",
   buttonText: "Get a free quote",
   buttonHref: "/quote",
   imageSrc: "/images/about-1.png",

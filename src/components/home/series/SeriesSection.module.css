@@ -11,7 +11,6 @@
   margin: 0 auto 48px;
 }
 
-
 .heading {
   font-family: var(--font-verah);
   font-size: 34px;
@@ -24,19 +23,17 @@
 /* ── Grid ── */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
-  max-width: 1000px;
+  max-width: 1360px;
   margin: 0 auto;
 }
 
 /* ── Card ── */
 .card {
   position: relative;
-  /* border-radius: 16px; */
   overflow: hidden;
-  /* aspect-ratio: 3 / 4; */
-  width: 326px;
+  width: 100%;
   height: 420px;
   cursor: pointer;
   text-decoration: none;
@@ -63,10 +60,10 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.65) 0%,
-      rgba(0, 0, 0, 0.1) 50%,
-      rgba(0, 0, 0, 0.0) 100%
+    to top,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0) 100%
   );
   transition: background 0.4s ease;
 }
@@ -81,7 +78,7 @@
   bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'Lato', Times, serif;
+  font-family: "Lato", Times, serif;
   font-size: 1.5rem;
   font-weight: 600;
   color: #ffffff;
@@ -118,7 +115,7 @@
 }
 
 .hoverName {
-  font-family: 'Lato', Times, serif;
+  font-family: "Lato", Times, serif;
   font-size: 1.75rem;
   font-weight: 600;
   color: #ffffff;
@@ -156,17 +153,21 @@
 /* ── Tablet ── */
 @media (max-width: 1024px) {
   .wrapper {
-      padding: 48px 24px;
+    padding: 48px 24px;
   }
 
   .grid {
-      gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .card {
+    height: 400px;
   }
 }
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
-
   .wrapper {
     padding: 36px 16px;
   }
@@ -188,7 +189,6 @@
     width: 100%;
     max-width: 340px;
     height: 420px;
-    aspect-ratio: unset;
   }
 
   /* On mobile show only title */

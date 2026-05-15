@@ -5,17 +5,22 @@ import styles from "./SeriesSection.module.css";
 const SERIES_DEFAULT = [
   {
     name: "Heritage",
-    description: "Classic enclosed lifts for large villas",
+    description: "Elegant enclosed lifts crafted for luxurious villa interiors",
     imageSrc: "/images/heritage-2.png",
   },
   {
     name: "Horizon",
-    description: "Minimal modern lifts for contemporary homes",
+    description: "Modern panoramic lifts designed for stylish contemporary homes",
     imageSrc: "/images/horizon-2.png",
   },
   {
-    name: "Aero / Slim",
-    description: "Space-saving lifts for compact layouts",
+    name: "Orbit",
+    description: "Compact circular lifts blending innovation with premium aesthetics",
+    imageSrc: "/images/orbit.png",
+  },
+  {
+    name: "Aero",
+    description: "Slim space-saving lifts perfect for compact modern living",
     imageSrc: "/images/aero-slim-2.png",
   },
 ];
@@ -34,7 +39,7 @@ interface SeriesSectionProps {
 }
 
 export default function SeriesSection({ data }: SeriesSectionProps) {
-  const heading = data?.heading ?? "Series";
+  const heading = data?.heading ?? "Models";
   const series = data?.series ?? SERIES_DEFAULT;
 
   return (

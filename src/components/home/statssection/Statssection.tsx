@@ -85,11 +85,11 @@ const STATS = [
 ];
 
 const EXPERIENCE = {
-    years: 20,
+    years: 10,
     suffix: "+",
     tagline: "Years of Experience",
     description:
-        "Founded over two decades ago, Invent Elevator is a pioneer in manufacturing home lift solutions by incorporating unparalleled engineering excellence and state-of-the-art elevation systems.",
+        "Invent Elevator delivers premium home lifts with advanced technology.",
 };
 
 const StatsSection = () => {

@@ -5,7 +5,7 @@ import styles from "./NotificationBar.module.css";
 
 const MESSAGES_DEFAULT = [
     "🛡️ 2 Year Warranty on all installations",
-    "⚡ 7 Day Fast Delivery across the UAE",
+    "⚡ Fast Delivery across the UAE",
     "🔧 Fast Installation — up and running in 30 days",
 ];
 

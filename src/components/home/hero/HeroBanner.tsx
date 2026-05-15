@@ -4,12 +4,15 @@ import { useState, useEffect } from "react";
 import styles from "./HeroBanner.module.css";
 
 const CYCLING_WORDS = [
-  "affordable",
+  "luxurious",
   "elegant",
   "silent",
   "premium",
   "modern",
   "reliable",
+  "refined",
+  "prestigious",
+  "exclusive",
 ];
 
 interface CyclingTitleProps {

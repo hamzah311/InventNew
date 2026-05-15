@@ -38,15 +38,15 @@ export default function Home() {
       <ContactForm />
       <StatsSection />
       <AboutSection />
-      <MarqueeSection />
+      {/* <MarqueeSection /> */}
+      <MarqueeLogos />
       <SeriesSection />
       <ProcessSteps />
       <FeaturesSection />
       <CtaBanner />
-      <SolutionsSection />
+      {/* <SolutionsSection /> */}
       <ProjectsSection />
       <FloatingBtn />
-      <MarqueeLogos />
       {/* <ScrollingText data={SCROLLING_TEXT[current_theme]} />
       <Predefine data={PREDEFINE[current_theme]} />
       <Carousel data={CAROUSEL[current_theme]} />
