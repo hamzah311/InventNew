@@ -324,7 +324,7 @@
         margin: 0 auto;
     }
 
-    .locationsCol {
+    /* .locationsCol {
         width: 100%;
         display: flex;
         justify-content: center;
@@ -332,7 +332,7 @@
     
     .locationList {
         width: fit-content;
-    }
+    } */
     
     .locationItem {
         justify-content: flex-start;
