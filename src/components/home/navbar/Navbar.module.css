@@ -19,13 +19,14 @@
     display: flex;
     align-items: center;
     width: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding: 20px 60px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
+    position: relative;
 }
 
 .scrolled .navbar {
@@ -37,6 +38,11 @@
 /* ── Logo ───────────────────────────── */
 
 .logoContainer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
     display: flex;
     align-items: center;
     flex-shrink: 0;
@@ -93,7 +99,7 @@
     line-height: 1.1;
 }
 
-/* ── CTA ────────────────────────────── */
+/* ── Desktop CTA ────────────────────── */
 
 .actions {
     margin-left: auto;
@@ -105,45 +111,107 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    background: rgba(20, 20, 20, 0.9);
-    color: #ffffff;
+
+    background: rgba(255, 255, 255, 0.92);
+    color: #000000;
+
     text-decoration: none;
-    padding: 22px 38px;
-    border-radius: 40px;
-    font-size: 1rem;
-    font-weight: 600;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    padding: 10px 20px 10px 10px;
+
+    border-radius: 999px;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+
+    border: none;
+
     transition: all 0.3s ease;
+
     cursor: pointer;
 }
 
 .quoteBtn:hover {
-    background: #e5b869;
-    color: #1a1a1a;
-    border-color: #e5b869;
-    box-shadow: 0 4px 20px rgba(229, 184, 105, 0.3);
+    background: #ffffff;
+    transform: translateY(-1px);
 }
 
 .phoneIcon {
-    display: inline-flex;
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: #1a1a1a;
+    color: #ffffff;
+
+    display: flex;
     align-items: center;
-    transition: all 0.3s ease;
+    justify-content: center;
+
+    flex-shrink: 0;
 }
 
-.quoteBtn:hover .phoneIcon {
-    color: #1a1a1a;
+/* ── Mobile Quote Button ── */
+
+.mobileQuoteBtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 14px;
+
+    background: #ffffff;
+    color: #000000;
+
+    text-decoration: none;
+
+    padding: 10px 10px 10px 24px;
+
+    border-radius: 999px;
+
+    font-weight: 700;
+    font-size: 1.05rem;
+
+    border: none;
+
+    cursor: pointer;
+
+    width: 100%;
+}
+
+.iconCircle {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    background: #1a1a1a;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
 }
 
 /* ── Mobile Menu Button ─────────────── */
 
 .mobileMenuBtn {
     display: none;
+
     background: none;
     border: none;
+
     color: #ffffff;
+
     cursor: pointer;
+
     padding: 8px;
+
     transition: transform 0.3s ease;
+
     margin-left: 16px;
 }
 
@@ -160,6 +228,7 @@
 /* ── Mobile Responsive ──────────────── */
 
 @media (max-width: 1024px) {
+
     .actions {
         display: none;
     }
@@ -170,21 +239,24 @@
         z-index: 10;
     }
 
-   
     .navbar {
         display: flex;
         align-items: center;
         justify-content: space-between;
+
         padding: 18px 20px;
+
         position: relative;
     }
 
-    /* ── Perfect centered logo ── */
+    /* ── Centered Logo ── */
 
     .logoContainer {
         position: absolute;
+
         left: 50%;
         top: 50%;
+
         transform: translate(-50%, -50%);
     }
 
@@ -207,20 +279,24 @@
     .mobileMenu {
         display: flex;
         flex-direction: column;
+
         position: absolute;
+
         top: 100%;
         left: 0;
         right: 0;
 
         margin: 10px;
-        padding: 24px;
+        padding: 18px;
 
         background: rgba(30, 30, 30, 0.95);
+
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
 
         border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 24px;
+
+        border-radius: 28px;
 
         opacity: 0;
         visibility: hidden;
@@ -236,34 +312,5 @@
         opacity: 1;
         visibility: visible;
         transform: translateY(0) scale(1);
-    }
-
-    /* ── Mobile CTA ── */
-
-    .mobileQuoteBtn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-
-        background: #e5b869;
-        color: #1a1a1a;
-
-        text-decoration: none;
-
-        padding: 14px 24px;
-        border-radius: 40px;
-
-        font-weight: 600;
-        font-size: 1rem;
-
-        border: none;
-        cursor: pointer;
-
-        transition: background 0.3s ease;
-    }
-
-    .mobileQuoteBtn:hover {
-        background: #f0c982;
     }
 }

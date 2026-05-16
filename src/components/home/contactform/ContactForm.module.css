@@ -69,7 +69,7 @@
 .select {
   background: #ffffff;
 
-  border: 1px solid #d9c19b;
+  border: 1px solid #000000;
 
   padding: 0 18px;
 
@@ -100,7 +100,7 @@
 }
 
 .submitBtn {
-  background: #bd8338;
+  background: #000000;
   color: #ffffff;
 
   border: none;
