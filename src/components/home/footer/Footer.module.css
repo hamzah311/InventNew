@@ -2,7 +2,7 @@
    Footer.module.css — Invent Elevator Footer
    ============================================================ */
 
-.footer {
+   .footer {
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -34,24 +34,32 @@
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: 280px 140px 140px 200px 1fr;
-    gap: 32px;
-    align-items: start;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(32px, 5vw, 80px);
+    width: 100%;
 }
 
 /* ── Brand Column ────────────────────────────────────────── */
 .brandCol {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 0 0 50%;
+    width: 50%;
     gap: 18px;
 }
 
-/* .logo {
+.logo {
     display: flex;
-    align-items: center;
-    width: 220px !important;
-} */
+    justify-content: center;
+    width: 100%;
+}
+
 .logo :global(img) {
     width: 100px !important;
     height: auto !important;
@@ -63,7 +71,7 @@
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.75);
     margin: 0;
-    max-width: 260px;
+    max-width: 220px;
 }
 
 .quoteBtn {
@@ -71,7 +79,6 @@
     align-items: center;
     gap: 14px;
     padding: 1px 1px 1px 26px;
-    /* same spacing as submit */
     background: #f3f3f3;
     color: #1a1a1a;
     border-radius: 50px;
@@ -86,7 +93,6 @@
     text-decoration: none;
 }
 
-/* Hover */
 .quoteBtn:hover {
     background: #e9e6df;
     transform: scale(1.02);
@@ -100,7 +106,6 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     width: 32px;
     height: 32px;
     background: #1a1a1a;
@@ -112,42 +117,26 @@
     transition: transform 0.25s ease, background 0.25s ease;
 }
 
-/* Hover animation */
 .quoteBtn:hover .arrowCircle {
     transform: translateX(0.5px);
     background: #000;
 }
 
-/* ── Nav Columns ─────────────────────────────────────────── */
-.navCol {
-    padding-top: 4px;
-}
-
-.linkList {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+/* ── Right Side ──────────────────────────────────────────── */
+.rightSide {
     display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.navLink {
-    color: rgba(255, 255, 255, 0.82);
-    text-decoration: none;
-    font-size: 14.5px;
-    font-weight: 400;
-    transition: color 0.2s ease;
-    white-space: nowrap;
-}
-
-.navLink:hover {
-    color: #ffffff;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: clamp(32px, 5vw, 80px);
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 /* ── Locations Column ────────────────────────────────────── */
 .locationsCol {
     padding-top: 4px;
+    flex: 0 0 auto;
 }
 
 .locationList {
@@ -183,6 +172,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    flex: 0 0 auto;
 }
 
 .contactTitle {
@@ -257,42 +247,50 @@
 .bottomBar {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .copyright {
     font-size: 13px;
     color: rgba(255, 255, 255, 0.6);
     margin: 0;
+    text-align: center;
 }
 
 /* ============================================================
-     RESPONSIVE
-     ============================================================ */
+   RESPONSIVE
+   ============================================================ */
 
-/* Large tablets → 2-col brand + nav, then locations + contact */
 @media (max-width: 1100px) {
-    .grid {
-        grid-template-columns: 260px 130px 130px 180px 1fr;
-        gap: 24px;
-    }
-
     .container {
         padding: 52px 32px 24px;
     }
+
+    .brandCol {
+        width: 180px;
+    }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 860px) {
+    .container {
+        padding: 48px 24px 24px;
+    }
+
     .grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 36px 24px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
     }
 
     .brandCol {
-        grid-column: 1 / -1;
+        width: 100%;
+        align-items: center;
     }
 
-    .contactCol {
-        grid-column: 1 / -1;
+    .rightSide {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: nowrap;
     }
 }
 
@@ -302,24 +300,36 @@
     }
 
     .grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 28px 16px;
+        gap: 32px;
     }
 
-    .brandCol {
-        grid-column: 1 / -1;
+    .rightSide {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 32px;
     }
 
-    .locationsCol {
-        grid-column: 1 / -1;
-    }
-
+    .brandCol,
+    .locationsCol,
     .contactCol {
-        grid-column: 1 / -1;
+        align-items: center;
+        text-align: center;
     }
 
     .tagline {
         max-width: 100%;
+    }
+
+    .quoteBtn {
+        margin: 0 auto;
+    }
+
+    .locationItem {
+        justify-content: center;
+    }
+
+    .socialRow {
+        justify-content: center;
     }
 
     .contactTitle {
@@ -328,40 +338,5 @@
 
     .divider {
         margin: 36px 0 16px;
-    }
-}
-
-@media (max-width: 400px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .navCol {
-        grid-column: 1;
-    }
-}
-@media (max-width: 600px) {
-
-    .brandCol {
-        align-items: center;
-        text-align: center;
-    }
-
-    .logo {
-        justify-content: center;
-        width: 100%;
-    }
-
-    .logo :global(img) {
-        width: 100px !important;
-        margin: 0 auto;
-    }
-
-    .tagline {
-        text-align: center;
-    }
-
-    .quoteBtn {
-        margin: 0 auto;
     }
 }

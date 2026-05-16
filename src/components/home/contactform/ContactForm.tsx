@@ -20,28 +20,43 @@ export default function ContactForm({
     <section className={styles.wrapper}>
       <div className={styles.container}>
 
-        {/* LEFT IMAGE */}
+        {/* LEFT CONTENT */}
         <div className={styles.imageSide}>
-          <img
-            src="/images/projects/_DSC5734.jpg"
-            alt="Invent Elevator"
-            className={styles.contactImage}
-          />
+
+          <span className={styles.leftSubtitle}>
+            INVENT ELEVATOR
+          </span>
+
+          <h2 className={styles.leftTitle}>
+            Elevating Spaces With Modern Lift Solutions
+          </h2>
+
+          <ul className={styles.featureList}>
+
+  <li className={styles.featureItem}>
+    Premium villa and residential lift solutions
+  </li>
+
+  <li className={styles.featureItem}>
+    Advanced safety systems with smooth performance
+  </li>
+
+  <li className={styles.featureItem}>
+    Elegant modern designs tailored for every space
+  </li>
+
+</ul>
+         
+
         </div>
 
         {/* RIGHT FORM */}
         <div
-  className={styles.formSide}
-  style={{
-    backgroundImage: `
-      linear-gradient(
-        rgba(0, 0, 0, 0.25),
-        rgba(0, 0, 0, 0.25)
-      ),
-      url("/images/horizon-1.png")
-    `,
-  }}
->
+          className={styles.formSide}
+          style={{
+            background: "#1d1d1d"
+          }}
+        >
           <form
             className={styles.form}
             action={formAction}
@@ -102,6 +117,14 @@ export default function ContactForm({
 
               <option value="Villa Lift">
                 Villa Lift
+              </option>
+
+              <option value="Commercial Lift">
+                Commercial Lift
+              </option>
+
+              <option value="Maintenance">
+                Maintenance
               </option>
             </select>
 

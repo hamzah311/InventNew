@@ -66,21 +66,7 @@ const ArrowIcon = () => (
 );
 
 export default function Footer() {
-  const navLinks = [
-    "Home",
-    "Maintenance",
-    "Modernization",
-    "Our Products",
-    "About Us",
-  ];
 
-  const moreLinks = [
-    "Projects",
-    "Blogs",
-    "Help Disk",
-    "Contact",
-    "Gallery",
-  ];
 
   const locations = [
     "Abu Dhabi",
@@ -145,31 +131,7 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Nav Column 1 */}
-          <div className={styles.navCol}>
-            <ul className={styles.linkList}>
-              {navLinks.map((link) => (
-                <li key={link}>
-                  <span className={styles.navLink}>
-                    {link}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Nav Column 2 */}
-          <div className={styles.navCol}>
-            <ul className={styles.linkList}>
-              {moreLinks.map((link) => (
-                <li key={link}>
-                  <span className={styles.navLink}>
-                    {link}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
+         
 
           {/* Locations Column */}
           <div className={styles.locationsCol}>
