@@ -324,8 +324,19 @@
         margin: 0 auto;
     }
 
-    .locationItem {
+    .locationsCol {
+        width: 100%;
+        display: flex;
         justify-content: center;
+    }
+    
+    .locationList {
+        width: fit-content;
+    }
+    
+    .locationItem {
+        justify-content: flex-start;
+        text-align: left;
     }
 
     .socialRow {
