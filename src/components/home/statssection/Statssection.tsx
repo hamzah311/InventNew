@@ -18,12 +18,18 @@ const HEADLINES = [
 
 const StatsSection = () => {
   const [currentHeadline, setCurrentHeadline] = useState(0);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentHeadline((prev) =>
-        prev === HEADLINES.length - 1 ? 0 : prev + 1
-      );
+      // Fade out first, then swap text, then fade back in
+      setVisible(false);
+      setTimeout(() => {
+        setCurrentHeadline((prev) =>
+          prev === HEADLINES.length - 1 ? 0 : prev + 1
+        );
+        setVisible(true);
+      }, 300); // matches CSS transition duration
     }, 3000);
 
     return () => clearInterval(interval);
@@ -33,7 +39,15 @@ const StatsSection = () => {
     <section className={styles.wrapper}>
       {/* LEFT */}
       <div className={styles.left}>
-        <h2 key={currentHeadline} className={styles.experienceHeading}>
+        {/* No key prop — element stays mounted, only opacity changes */}
+        <h2
+          className={styles.experienceHeading}
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(8px)",
+            transition: "opacity 0.3s ease, transform 0.3s ease",
+          }}
+        >
           {HEADLINES[currentHeadline]}
         </h2>
         <p className={styles.headlineSubtext}>
