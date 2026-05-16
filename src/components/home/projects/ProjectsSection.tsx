@@ -14,7 +14,7 @@ const PROJECTS_DEFAULT = [
   {
     index: "02",
     title: "Modern Home Lift Installation",
-    imageSrc: "/images/projects/_DSC6621.jpg",
+    imageSrc: "/images/projects/project2.jpg",
     imageAlt: "Modern residential lift project in Dubai Hills",
     href: "/projects/modern-home-lift-installation",
   },
@@ -28,7 +28,7 @@ const PROJECTS_DEFAULT = [
   {
     index: "04",
     title: "Contemporary Home Lift",
-    imageSrc: "/images/projects/_DSC6628.jpg",
+    imageSrc: "/images/projects/project4.jpg",
     imageAlt: "Contemporary luxury lift installation project",
     href: "/projects/contemporary-home-lift",
   },

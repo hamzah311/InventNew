@@ -72,6 +72,7 @@ export default function Footer() {
     "Ajman",
     "Fujairah",
     "Ras Ai Khaimah",
+    "Dubai",
   ];
 
   return (
@@ -145,8 +146,8 @@ export default function Footer() {
           <div className={styles.contactCol}>
             <h3 className={styles.contactTitle}>Contact Us</h3>
 
-            <a href="tel:+971523753356" className={styles.phone}>
-              +971 52 375 3356
+            <a href="tel:+971585723553" className={styles.phone}>
+              +971-58-5723553 
             </a>
 
             <a

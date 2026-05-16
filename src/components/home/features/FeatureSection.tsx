@@ -11,7 +11,7 @@ const FEATURES_DEFAULT = [
     subheading:
       "Designed for modern villas. \nEngineered for everyday comfort.",
     description:
-      "We specialize in lift solutions for private villas and premium residences across the UAE..",
+      "We specialize in lift solutions for private villas and premium residences across the UAE.",
   },
   {
     label: "Space-optimized designs",
@@ -89,7 +89,7 @@ interface FeaturesSectionProps {
 export default function FeaturesSection({ data }: FeaturesSectionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const heading = data?.heading ?? "Our Home Lifts Features";
+  const heading = data?.heading ?? "Our Home Lifts Feature";
   const features = data?.features ?? FEATURES_DEFAULT;
 
   const active = features[activeIndex];

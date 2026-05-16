@@ -38,11 +38,6 @@
 /* ── Logo ───────────────────────────── */
 
 .logoContainer {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
     display: flex;
     align-items: center;
     flex-shrink: 0;
@@ -252,16 +247,16 @@
         position: relative;
     }
 
-    /* ── Centered Logo ── */
 
-    .logoContainer {
-        position: absolute;
 
-        left: 50%;
-        top: 50%;
+    /* ── Left Logo ── */
 
-        transform: translate(-50%, -50%);
-    }
+.logoContainer {
+    position: relative;
+    left: unset;
+    top: unset;
+    transform: none;
+}
 
     .logoLink {
         height: auto;

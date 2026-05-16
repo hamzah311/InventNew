@@ -44,7 +44,7 @@ export default function Home() {
       <SeriesSection />
       <FeaturesSection />
       <ProcessSteps />
-      <CtaBanner />
+      {/* <CtaBanner /> */}
       {/* <SolutionsSection /> */}
       <FloatingBtn />
       {/* <ScrollingText data={SCROLLING_TEXT[current_theme]} />
