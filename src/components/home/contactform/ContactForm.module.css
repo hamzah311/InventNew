@@ -37,17 +37,60 @@
 
 .formSide {
   flex: 1;
+
   padding: 48px;
+
   display: flex;
   align-items: center;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url("/images/projects/_DSC5734.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
 }
 
+/* GLASS LAYER */
+
+.formSide::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* FORM */
+
 .form {
+  position: relative;
+  z-index: 1;
+
   width: 100%;
 
   display: flex;
   flex-direction: column;
-  gap: 14px;
+
+  gap: 18px;
+
+  padding: 32px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 /* INPUTS */
@@ -56,26 +99,38 @@
 .select,
 .submitBtn {
   width: 100%;
-  height: 56px;
+  height: 52px;
 
-  border-radius: 30px;
+  border: none;
+  border-radius: 0;
 
-  font-size: 0.95rem;
+  font-size: 1rem;
 
   box-sizing: border-box;
 }
 
+/* FIELDS */
+
 .input,
 .select {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.96);
 
-  border: 1px solid #000000;
+  color: #1a1a1a;
 
-  padding: 0 18px;
+  padding: 0 28px;
 
   outline: none;
 
-  color: #1a1a1a;
+  font-size: 1rem;
+  font-weight: 500;
+
+  text-align: left;
+  text-align-last: left;
+}
+
+.input::placeholder {
+  color: #8f8f8f;
+  text-align: left;
 }
 
 .select {
@@ -84,28 +139,22 @@
 
   cursor: pointer;
 }
-.input,
-.select {
-  text-align: center;
-  text-align-last: center;
-}
-
-.input::placeholder {
-  text-align: center;
-}
 
 .input:focus,
 .select:focus {
-  border-color: #bd8338;
+  outline: none;
 }
 
+/* BUTTON */
+
 .submitBtn {
-  background: #000000;
+  background: #101114;
   color: #ffffff;
 
-  border: none;
+  font-weight: 800;
 
-  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 
   cursor: pointer;
 
@@ -113,7 +162,7 @@
 }
 
 .submitBtn:hover {
-  background: #a86f2a;
+  background: #bd8338;
 }
 
 /* MOBILE */
@@ -136,6 +185,17 @@
   .formSide {
     padding: 24px;
   }
+
+  .form {
+    padding: 20px;
+  }
+
+  .input,
+  .select,
+  .submitBtn {
+    height: 64px;
+    font-size: 0.92rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -145,13 +205,19 @@
   }
 
   .formSide {
-    padding: 20px;
+    padding: 18px;
+  }
+
+  .form {
+    padding: 16px;
+    gap: 14px;
   }
 
   .input,
   .select,
   .submitBtn {
-    height: 54px;
-    font-size: 0.9rem;
+    height: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }

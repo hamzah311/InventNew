@@ -30,7 +30,18 @@ export default function ContactForm({
         </div>
 
         {/* RIGHT FORM */}
-        <div className={styles.formSide}>
+        <div
+  className={styles.formSide}
+  style={{
+    backgroundImage: `
+      linear-gradient(
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.25)
+      ),
+      url("/images/horizon-1.png")
+    `,
+  }}
+>
           <form
             className={styles.form}
             action={formAction}
