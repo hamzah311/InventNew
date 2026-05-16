@@ -39,7 +39,7 @@ interface SeriesSectionProps {
 }
 
 export default function SeriesSection({ data }: SeriesSectionProps) {
-  const heading = data?.heading ?? "Models";
+  const heading = data?.heading ?? "Our Home Lift Models";
   const series = data?.series ?? SERIES_DEFAULT;
 
   return (

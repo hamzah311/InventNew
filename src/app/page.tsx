@@ -32,20 +32,20 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      <NotificationBar />
+      {/* <NotificationBar /> */}
       <Navbar />
       <HeroBanner data={HERO_TEXTS[current_theme]} />
       <ContactForm />
       <StatsSection />
-      <AboutSection />
+      <ProjectsSection />
+      {/* <AboutSection /> */}
       {/* <MarqueeSection /> */}
       <MarqueeLogos />
       <SeriesSection />
-      <ProcessSteps />
       <FeaturesSection />
+      <ProcessSteps />
       <CtaBanner />
       {/* <SolutionsSection /> */}
-      <ProjectsSection />
       <FloatingBtn />
       {/* <ScrollingText data={SCROLLING_TEXT[current_theme]} />
       <Predefine data={PREDEFINE[current_theme]} />

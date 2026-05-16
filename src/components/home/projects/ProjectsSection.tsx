@@ -205,10 +205,19 @@ export default function ProjectsSection({
       >
         {projects.map((project) => (
           <a
-            key={project.index}
-            href={project.href}
-            className={styles.card}
-          >
+          key={project.index}
+          href="#contact-banner"
+          className={styles.card}
+          onClick={(e) => {
+            e.preventDefault();
+        
+            document
+              .getElementById("contact-banner")
+              ?.scrollIntoView({
+                behavior: "smooth",
+              });
+          }}
+        >
             <div className={styles.imageBox}>
               <img
                 src={project.imageSrc}

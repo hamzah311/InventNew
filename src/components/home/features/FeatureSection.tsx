@@ -60,13 +60,7 @@ const FEATURES_DEFAULT = [
         subheading: "Up and running\nin under a month.",
         description: "Our streamlined installation process means your home lift is fully operational within 30 days of confirmation.",
     },
-    {
-        label: "Custom interiors matching your home",
-        imageSrc: "/images/features/interiors.png",
-        imageAlt: "Custom elevator interiors",
-        subheading: "Tailored to every\nlast detail.",
-        description: "From flooring to lighting, every interior element is handpicked to create a cohesive look with your home.",
-    },
+    
 ];
 
 interface Feature {

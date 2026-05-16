@@ -9,95 +9,99 @@ const REVIEWS_DEFAULT = [
     location: "Dubai Hills, UAE",
     rating: 5,
     review:
-      "Invent Elevator transformed our villa completely. The installation was seamless, done within 30 days as promised. The lift is whisper-quiet and the cabin finish matches our interiors perfectly.",
+      "Invent Elevator transformed our villa completely. The installation was seamless, done within 30 days as promised.",
     initials: "AM",
+    image: "/images/reviews/space.png",
   },
   {
     name: "Sarah Al Mansoori",
     location: "Palm Jumeirah, UAE",
     rating: 5,
     review:
-      "Exceptional quality and professionalism. From the initial consultation to the final handover, every step was handled with precision. Our glass lift is now the centrepiece of our home.",
+      "Exceptional quality and professionalism. Our glass lift is now the centrepiece of our home.",
     initials: "SA",
+    image: "/images/reviews/german.png",
   },
   {
     name: "Vikram Nair",
     location: "Jumeirah, UAE",
     rating: 5,
     review:
-      "We installed a compact home lift for my elderly parents. The team was incredibly thoughtful about accessibility needs. The operation is smooth and the build quality is outstanding.",
+      "The team was incredibly thoughtful about accessibility needs. The operation is smooth and premium.",
     initials: "VN",
+    image: "/images/reviews/installation.png",
   },
   {
     name: "Layla Hassan",
     location: "Abu Dhabi, UAE",
     rating: 5,
     review:
-      "I was impressed by how little structural work was needed. The team completed everything neatly and on schedule. The lift blends beautifully into our duplex villa.",
+      "Very little structural work was needed. The lift blends beautifully into our duplex villa.",
     initials: "LH",
+    image: "/images/reviews/interiors.png",
   },
   {
     name: "Omar Al Farsi",
     location: "Sharjah, UAE",
     rating: 5,
     review:
-      "Top-notch German components, impeccable finishing, and a team that genuinely cares about the final result. Would highly recommend Invent Elevator to anyone looking for quality.",
+      "Top-notch German components, impeccable finishing, and outstanding service throughout.",
     initials: "OF",
+    image: "/images/reviews/minimal.png",
   },
   {
     name: "Priya Sharma",
     location: "Mirdif, UAE",
     rating: 5,
     review:
-      "The Heritage series is stunning. Our traditional villa now has a lift that feels completely at home with the architecture. The after-sales support has also been excellent.",
+      "The Heritage series is stunning and fits perfectly with our villa architecture.",
     initials: "PS",
+    image: "/images/reviews/seamless.png",
   },
 ];
 
-interface Review {
-  name: string;
-  location: string;
-  rating: number;
-  review: string;
-  initials: string;
-}
-
-interface ReviewsSectionProps {
-  data?: {
-    heading?: string;
-    subheading?: string;
-    reviews?: Review[];
-  };
-}
-
-export default function ReviewsSection({ data }: ReviewsSectionProps) {
+export default function ReviewsSection() {
   const trackRef = useRef<HTMLDivElement>(null);
+
   const indexRef = useRef<number>(0);
+
   const isResetting = useRef<boolean>(false);
 
-  const heading    = data?.heading    ?? "What Our Clients Say";
-  const subheading = data?.subheading ?? "Trusted by homeowners across the UAE";
-  const reviews    = data?.reviews    ?? REVIEWS_DEFAULT;
+  const isDown = useRef(false);
 
-  const duplicatedReviews = [...reviews, ...reviews, ...reviews];
+  const startX = useRef(0);
+
+  const scrollLeft = useRef(0);
+
+  const duplicatedReviews = [
+    ...REVIEWS_DEFAULT,
+    ...REVIEWS_DEFAULT,
+    ...REVIEWS_DEFAULT,
+  ];
 
   useEffect(() => {
     const track = trackRef.current;
+
     if (!track) return;
 
     const getCardWidth = () => {
       const firstCard = track.children[0] as HTMLElement;
-      return firstCard ? firstCard.offsetWidth + 20 : 0;
+
+      return firstCard
+        ? firstCard.offsetWidth + 20
+        : 0;
     };
 
-    // Start from the middle set so we can scroll both directions
-    indexRef.current = reviews.length;
-    track.scrollLeft = indexRef.current * getCardWidth();
+    indexRef.current = REVIEWS_DEFAULT.length;
+
+    track.scrollLeft =
+      indexRef.current * getCardWidth();
 
     const interval = setInterval(() => {
       if (isResetting.current) return;
 
       indexRef.current += 1;
+
       const cardWidth = getCardWidth();
 
       track.scrollTo({
@@ -105,19 +109,24 @@ export default function ReviewsSection({ data }: ReviewsSectionProps) {
         behavior: "smooth",
       });
 
-      // Once we've scrolled through the second set, silently jump back to the middle set
-      if (indexRef.current >= reviews.length * 2) {
+      if (
+        indexRef.current >=
+        REVIEWS_DEFAULT.length * 2
+      ) {
         isResetting.current = true;
 
         setTimeout(() => {
-          // Disable smooth scroll, jump to equivalent position in middle set
           track.style.scrollBehavior = "auto";
-          indexRef.current = reviews.length;
-          track.scrollLeft = indexRef.current * cardWidth;
 
-          // Re-enable smooth scroll on next frame
+          indexRef.current =
+            REVIEWS_DEFAULT.length;
+
+          track.scrollLeft =
+            indexRef.current * cardWidth;
+
           requestAnimationFrame(() => {
             track.style.scrollBehavior = "";
+
             isResetting.current = false;
           });
         }, 500);
@@ -125,45 +134,163 @@ export default function ReviewsSection({ data }: ReviewsSectionProps) {
     }, 3500);
 
     return () => clearInterval(interval);
-  }, [reviews.length]);
+  }, []);
+
+  const handleMouseDown = (
+    e: React.MouseEvent<HTMLDivElement>
+  ) => {
+    const track = trackRef.current;
+
+    if (!track) return;
+
+    isDown.current = true;
+
+    startX.current =
+      e.pageX - track.offsetLeft;
+
+    scrollLeft.current = track.scrollLeft;
+  };
+
+  const handleMouseLeave = () => {
+    isDown.current = false;
+  };
+
+  const handleMouseUp = () => {
+    isDown.current = false;
+  };
+
+  const handleMouseMove = (
+    e: React.MouseEvent<HTMLDivElement>
+  ) => {
+    const track = trackRef.current;
+
+    if (!isDown.current || !track) return;
+
+    e.preventDefault();
+
+    const x = e.pageX - track.offsetLeft;
+
+    const walk =
+      (x - startX.current) * 1.2;
+
+    track.scrollLeft =
+      scrollLeft.current - walk;
+  };
 
   return (
-    <section id="testimonials" className={styles.wrapper}>
-
+    <section
+      id="testimonials"
+      className={styles.wrapper}
+    >
       {/* Heading */}
       <div className={styles.headingBlock}>
-        <h2 className={styles.heading}>{heading}</h2>
-        <p className={styles.subheading}>{subheading}</p>
+        <h2 className={styles.heading}>
+          What Our Clients Say
+        </h2>
+
+        <p className={styles.subheading}>
+          Trusted by homeowners across the UAE
+        </p>
       </div>
 
       {/* Reviews Track */}
-      <div className={styles.track} ref={trackRef}>
-        {duplicatedReviews.map((review, index) => (
-          <div key={index} className={styles.card}>
+      <div
+        className={styles.track}
+        ref={trackRef}
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+      >
+        {duplicatedReviews.map(
+          (review, index) => (
+            <div
+              key={index}
+              className={styles.card}
+            >
+              {/* LEFT IMAGE */}
+              <div
+                className={styles.imageSide}
+              >
+                <img
+                  src={review.image}
+                  alt={review.name}
+                  className={
+                    styles.reviewImage
+                  }
+                />
+              </div>
 
-            {/* Stars */}
-            <div className={styles.stars}>
-              {Array.from({ length: review.rating }).map((_, i) => (
-                <span key={i} className={styles.star}>★</span>
-              ))}
-            </div>
+              {/* RIGHT CONTENT */}
+              <div
+                className={
+                  styles.contentSide
+                }
+              >
+                {/* Stars */}
+                <div className={styles.stars}>
+                  {Array.from({
+                    length: review.rating,
+                  }).map((_, i) => (
+                    <span
+                      key={i}
+                      className={
+                        styles.star
+                      }
+                    >
+                      ★
+                    </span>
+                  ))}
+                </div>
 
-            {/* Review */}
-            <p className={styles.reviewText}>"{review.review}"</p>
+                {/* Review */}
+                <p
+                  className={
+                    styles.reviewText
+                  }
+                >
+                  "{review.review}"
+                </p>
 
-            {/* Author */}
-            <div className={styles.author}>
-              <div className={styles.avatar}>{review.initials}</div>
-              <div className={styles.authorInfo}>
-                <span className={styles.authorName}>{review.name}</span>
-                <span className={styles.authorLocation}>{review.location}</span>
+                {/* Author */}
+                <div
+                  className={styles.author}
+                >
+                  <div
+                    className={
+                      styles.avatar
+                    }
+                  >
+                    {review.initials}
+                  </div>
+
+                  <div
+                    className={
+                      styles.authorInfo
+                    }
+                  >
+                    <span
+                      className={
+                        styles.authorName
+                      }
+                    >
+                      {review.name}
+                    </span>
+
+                    <span
+                      className={
+                        styles.authorLocation
+                      }
+                    >
+                      {review.location}
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-
-          </div>
-        ))}
+          )
+        )}
       </div>
-
     </section>
   );
 }

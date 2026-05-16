@@ -21,28 +21,32 @@
 }
 
 /* ── Main layout ── */
+/* ── Main layout ── */
 .inner {
   display: flex;
-  align-items: stretch;
   gap: 56px;
   max-width: 1400px;
   margin: 0 auto;
+  align-items: stretch;
 }
 
 /* LEFT — Image */
 .imageBox {
   flex: 0 0 44%;
-  overflow: hidden;
-  height: auto;
-  display: flex;
+  position: relative;
+  min-height: 100%;
 }
 
 .image {
+  position: absolute;
+  inset: 0;
+
   width: 100%;
-  height: 90%;
-  flex: 1;
+  height: 100%;
+
   object-fit: cover;
   display: block;
+
   animation: fadeIn 0.4s ease;
 }
 
@@ -51,7 +55,6 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
 /* Text block fades when key changes */

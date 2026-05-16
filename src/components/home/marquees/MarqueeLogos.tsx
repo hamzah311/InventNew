@@ -1,3 +1,4 @@
+"use client";
 import styles from "./MarqueeLogos.module.css";
 
 // Top row logos (left to right direction → animate left)
@@ -43,7 +44,18 @@ function LogoRow({ logos, direction }: LogoRowProps) {
         }`}
       >
         {repeated.map((logo, i) => (
-          <div className={styles.logoCard} key={`${logo.alt}-${i}`}>
+          // <div className={styles.logoCard} key={`${logo.alt}-${i}`}>
+          //   <img src={logo.src} alt={logo.alt} className={styles.logoImg} />
+          // </div>
+          <div
+            className={styles.logoCard}
+            key={`${logo.alt}-${i}`}
+            onClick={() => {
+              document.getElementById("contact-banner")?.scrollIntoView({
+                behavior: "smooth",
+              });
+            }}
+          >
             <img src={logo.src} alt={logo.alt} className={styles.logoImg} />
           </div>
         ))}

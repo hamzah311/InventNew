@@ -1,6 +1,5 @@
 .headerWrapper {
     position: fixed;
-    top: 36px;
     left: 0;
     width: 100%;
     height: 83px;
@@ -36,9 +35,11 @@
 }
 
 /* ── Logo ───────────────────────────── */
+
 .logoContainer {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .logoLink {
@@ -68,6 +69,7 @@
 }
 
 /* ── Brand Text ─────────────────────── */
+
 .logoText {
     display: flex;
     flex-direction: column;
@@ -75,10 +77,10 @@
 }
 
 .brandName {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Times New Roman", Times, serif;
     font-size: 1.25rem;
     font-weight: 600;
-    color: #E5B869;
+    color: #e5b869;
     letter-spacing: 1px;
     line-height: 1.1;
 }
@@ -91,38 +93,10 @@
     line-height: 1.1;
 }
 
-/* ── Desktop Nav ────────────────────── */
-.navLinks {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-left: auto;
-    margin-right: 30px;
-}
-
-.link {
-    color: #e6e6e6;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.link:hover {
-    color: #e2af39;
-}
-
 /* ── CTA ────────────────────────────── */
+
 .actions {
+    margin-left: auto;
     display: flex;
     align-items: center;
 }
@@ -134,9 +108,9 @@
     background: rgba(20, 20, 20, 0.9);
     color: #ffffff;
     text-decoration: none;
-    padding: 12px 28px;
+    padding: 22px 38px;
     border-radius: 40px;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
@@ -144,9 +118,9 @@
 }
 
 .quoteBtn:hover {
-    background: #E5B869;
+    background: #e5b869;
     color: #1a1a1a;
-    border-color: #E5B869;
+    border-color: #e5b869;
     box-shadow: 0 4px 20px rgba(229, 184, 105, 0.3);
 }
 
@@ -161,6 +135,7 @@
 }
 
 /* ── Mobile Menu Button ─────────────── */
+
 .mobileMenuBtn {
     display: none;
     background: none;
@@ -169,6 +144,7 @@
     cursor: pointer;
     padding: 8px;
     transition: transform 0.3s ease;
+    margin-left: 16px;
 }
 
 .mobileMenuBtn:active {
@@ -176,14 +152,14 @@
 }
 
 /* ── Mobile Menu ────────────────────── */
+
 .mobileMenu {
     display: none;
 }
 
 /* ── Mobile Responsive ──────────────── */
-@media (max-width: 1024px) {
 
-    .navLinks,
+@media (max-width: 1024px) {
     .actions {
         display: none;
     }
@@ -194,20 +170,17 @@
         z-index: 10;
     }
 
-    .headerWrapper {
-        top: 36px;
-    }
-
+   
     .navbar {
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 18px 20px;
         position: relative;
-
     }
 
     /* ── Perfect centered logo ── */
+
     .logoContainer {
         position: absolute;
         left: 50%;
@@ -224,11 +197,13 @@
         width: 70px;
         height: 70px;
     }
-    .logoIcon img{
+
+    .logoIcon img {
         margin-top: 0;
     }
 
     /* ── Mobile Dropdown ── */
+
     .mobileMenu {
         display: flex;
         flex-direction: column;
@@ -263,51 +238,15 @@
         transform: translateY(0) scale(1);
     }
 
-    .mobileNavLinks {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 24px 0;
-
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .mobileLink {
-        color: #e6e6e6;
-        text-decoration: none;
-        font-size: 1.1rem;
-        font-weight: 500;
-
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-
-        width: 100%;
-
-        background: none;
-        border: none;
-
-        padding: 0;
-
-        text-align: left;
-        cursor: pointer;
-
-        transition: color 0.3s ease;
-    }
-
-    .mobileLink:hover {
-        color: #ffffff;
-    }
-
     /* ── Mobile CTA ── */
+
     .mobileQuoteBtn {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
 
-        background: #E5B869;
+        background: #e5b869;
         color: #1a1a1a;
 
         text-decoration: none;
