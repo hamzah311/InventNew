@@ -167,7 +167,7 @@
 
 /* MOBILE */
 
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
 
   .wrapper {
     padding: 20px;
@@ -180,6 +180,36 @@
   .imageSide {
     width: 100%;
     min-height: 260px;
+  }
+
+  .formSide {
+    padding: 24px;
+  }
+
+  .form {
+    padding: 20px;
+  }
+
+  .input,
+  .select,
+  .submitBtn {
+    height: 64px;
+    font-size: 0.92rem;
+  }
+} */
+
+@media (max-width: 992px) {
+
+  .wrapper {
+    padding: 20px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .imageSide {
+    display: none;
   }
 
   .formSide {
