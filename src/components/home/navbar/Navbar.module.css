@@ -155,18 +155,18 @@
 /* ── Mobile Quote Button ── */
 
 .mobileQuoteBtn {
+    position: relative;
+
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
-    gap: 14px;
+    justify-content: center;
 
     background: #ffffff;
     color: #000000;
 
     text-decoration: none;
 
-    padding: 10px 10px 10px 24px;
+    padding: 25px 20px;
 
     border-radius: 999px;
 
@@ -181,6 +181,9 @@
 }
 
 .iconCircle {
+    position: absolute;
+    left: 10px;
+
     width: 52px;
     height: 52px;
 
