@@ -149,7 +149,12 @@ export default function Footer() {
               +971 52 375 3356
             </a>
 
-            <span className={styles.email}>info@inventelevator.com</span>
+            <a
+  href="mailto:info@inventelevator.com"
+  className={styles.email}
+>
+  info@inventelevator.com
+</a>
 
             <div className={styles.socialRow}>
               <span className={styles.socialIcon} aria-label="Instagram">
