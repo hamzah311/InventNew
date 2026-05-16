@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import styles from "./ProjectsSection.module.css";
 
 const PROJECTS_DEFAULT = [
@@ -75,87 +75,82 @@ const ArrowIcon = () => (
   </svg>
 );
 
-export default function ProjectsSection({
-  data,
-}: ProjectsSectionProps) {
+export default function ProjectsSection({ data }: ProjectsSectionProps) {
   const [activeSlide, setActiveSlide] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
+  // Keep a ref so the interval never needs to be recreated when slide changes
+  const activeSlideRef = useRef(0);
+  const isUserScrollingRef = useRef(false);
+  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const heading = data?.heading ?? "Projects";
-
   const description =
     data?.description ??
     "Discover our premium home lift projects, designed for smooth mobility, modern elegance, and everyday comfort.";
-
   const buttonText = data?.buttonText ?? "Get a free quote";
-
   const buttonHref = data?.buttonHref ?? "/quote";
-
   const projects = data?.projects ?? PROJECTS_DEFAULT;
 
-  // AUTO SLIDE
-  useEffect(() => {
+  const scrollToSlide = useCallback((index: number) => {
     const track = trackRef.current;
-
     if (!track) return;
+    const card = track.children[index] as HTMLElement;
+    if (!card) return;
+    // Scroll so the card aligns with the track's left padding (40px)
+    track.scrollTo({
+      left: card.offsetLeft - 40,
+      behavior: "smooth",
+    });
+  }, []);
 
+  const goToSlide = useCallback(
+    (index: number) => {
+      activeSlideRef.current = index;
+      setActiveSlide(index);
+      scrollToSlide(index);
+    },
+    [scrollToSlide]
+  );
+
+  // AUTO SLIDE — interval created once, reads slide index via ref
+  useEffect(() => {
     const interval = setInterval(() => {
-      const nextSlide =
-        activeSlide === projects.length - 1
+      // Don't auto-advance while the user is manually scrolling
+      if (isUserScrollingRef.current) return;
+      const next =
+        activeSlideRef.current === projects.length - 1
           ? 0
-          : activeSlide + 1;
-
-      setActiveSlide(nextSlide);
-
-      const card = track.children[nextSlide] as HTMLElement;
-
-      if (card) {
-        track.scrollTo({
-          left: card.offsetLeft - 40,
-          behavior: "smooth",
-        });
-      }
-    }, 2000);
+          : activeSlideRef.current + 1;
+      goToSlide(next);
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, [activeSlide, projects.length]);
+  }, [projects.length, goToSlide]);
 
   const handleDotClick = (index: number) => {
-    setActiveSlide(index);
-
-    const track = trackRef.current;
-
-    if (!track) return;
-
-    const card = track.children[index] as HTMLElement;
-
-    if (card) {
-      track.scrollTo({
-        left: card.offsetLeft - 40,
-        behavior: "smooth",
-      });
-    }
+    goToSlide(index);
   };
 
   const handleScroll = () => {
     const track = trackRef.current;
-
     if (!track) return;
 
-    const scrollLeft = track.scrollLeft;
+    // Mark user as scrolling so autoscroll pauses briefly
+    isUserScrollingRef.current = true;
+    if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+    scrollTimeoutRef.current = setTimeout(() => {
+      isUserScrollingRef.current = false;
+    }, 1000);
 
-    const cardWidth =
-      (track.children[0] as HTMLElement)?.offsetWidth ?? 0;
-
+    const cardWidth = (track.children[0] as HTMLElement)?.offsetWidth ?? 0;
     const gap = 24;
+    const index = Math.round(track.scrollLeft / (cardWidth + gap));
+    const clamped = Math.min(Math.max(index, 0), projects.length - 1);
 
-    const index = Math.round(
-      scrollLeft / (cardWidth + gap)
-    );
-
-    setActiveSlide(
-      Math.min(index, projects.length - 1)
-    );
+    if (clamped !== activeSlideRef.current) {
+      activeSlideRef.current = clamped;
+      setActiveSlide(clamped);
+    }
   };
 
   return (
@@ -164,32 +159,23 @@ export default function ProjectsSection({
       <div className={styles.topRow}>
         <div className={styles.topLeft}>
           <h2 className={styles.heading}>{heading}</h2>
-
           <span className={styles.line} />
         </div>
 
         <div className={styles.bottomPart}>
-          <p className={styles.description}>
-            {description}
-          </p>
+          <p className={styles.description}>{description}</p>
 
           <a
             href={buttonHref}
             className={styles.ctaBtn}
             onClick={(e) => {
               e.preventDefault();
-
               document
                 .getElementById("contact-banner")
-                ?.scrollIntoView({
-                  behavior: "smooth",
-                });
+                ?.scrollIntoView({ behavior: "smooth" });
             }}
           >
-            <span className={styles.ctaText}>
-              {buttonText}
-            </span>
-
+            <span className={styles.ctaText}>{buttonText}</span>
             <span className={styles.arrowCircle}>
               <ArrowIcon />
             </span>
@@ -198,26 +184,19 @@ export default function ProjectsSection({
       </div>
 
       {/* Carousel */}
-      <div
-        className={styles.track}
-        ref={trackRef}
-        onScroll={handleScroll}
-      >
+      <div className={styles.track} ref={trackRef} onScroll={handleScroll}>
         {projects.map((project) => (
           <a
-          key={project.index}
-          href="#contact-banner"
-          className={styles.card}
-          onClick={(e) => {
-            e.preventDefault();
-        
-            document
-              .getElementById("contact-banner")
-              ?.scrollIntoView({
-                behavior: "smooth",
-              });
-          }}
-        >
+            key={project.index}
+            href="#contact-banner"
+            className={styles.card}
+            onClick={(e) => {
+              e.preventDefault();
+              document
+                .getElementById("contact-banner")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
             <div className={styles.imageBox}>
               <img
                 src={project.imageSrc}
@@ -225,11 +204,8 @@ export default function ProjectsSection({
                 className={styles.image}
               />
             </div>
-
             <p className={styles.cardLabel}>
-              <span className={styles.cardIndex}>
-                {project.index} -
-              </span>{" "}
+              <span className={styles.cardIndex}>{project.index} -</span>{" "}
               {project.title}
             </p>
           </a>
@@ -242,9 +218,7 @@ export default function ProjectsSection({
           <button
             key={index}
             className={`${styles.dot} ${
-              activeSlide === index
-                ? styles.dotActive
-                : ""
+              activeSlide === index ? styles.dotActive : ""
             }`}
             onClick={() => handleDotClick(index)}
             aria-label={`Go to project ${index + 1}`}

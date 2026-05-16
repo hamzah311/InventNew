@@ -2,7 +2,8 @@
   width: 100%;
   padding: 60px 0 48px;
   box-sizing: border-box;
-  overflow: hidden;
+  /* Fix: contain horizontal overflow without clipping scroll track */
+  overflow-x: clip;
 }
 
 /* ── Top row ── */
@@ -23,18 +24,9 @@
   align-items: center;
   gap: 16px;
   flex: 1;
-}
-.topLeft {
-  flex: 1;
   width: 100%;
 }
 
-.headingRow {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
 .headingRow {
   display: flex;
   align-items: center;
@@ -51,18 +43,16 @@
 }
 
 .line {
-  left: 120px;
-  right: -230px;
   flex: 1;
   height: 1px;
   background: #1a1a1a;
 }
 
-.bottomPart{
+.bottomPart {
   display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
 }
 
 .description {
@@ -113,26 +103,10 @@
   transform: scale(0.98);
 }
 
-.ctaArrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: #ffffff;
-  color: #000000;
-  border-radius: 50%;
-  font-size: 1rem;
-  font-weight: 700;
-  flex-shrink: 0;
-  transition: background 0.2s ease;
-}
-
 .arrowCircle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   width: 32px;
   height: 32px;
   background: #ffffff;
@@ -144,7 +118,10 @@
   transition: transform 0.25s ease, background 0.25s ease;
 }
 
-/* ── Carousel track ── */
+/* ── Carousel track ──
+   Fix: use scroll-padding instead of offsetLeft arithmetic for padding,
+   and contain width with a wrapping box-sizing trick so it never bleeds.
+*/
 .track {
   display: flex;
   gap: 24px;
@@ -152,7 +129,12 @@
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding: 0 40px;
+  /* Use scroll-padding so snap & JS scrollIntoView respect the visual offset */
+  scroll-padding-left: 40px;
+  /* padding-inline avoids adding to scrollWidth in modern browsers */
+  padding-inline: 40px;
+  /* Ensure no inherited overflow causes bleed */
+  box-sizing: border-box;
   cursor: grab;
 }
 
@@ -167,7 +149,7 @@
 /* ── Card ── */
 .card {
   flex: 0 0 calc(50% - 52px);
-  /* scroll-snap-align: start; */
+  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -182,7 +164,6 @@
 .imageBox {
   width: 100%;
   aspect-ratio: 4 / 3;
-  /* border-radius: 12px; */
   overflow: hidden;
 }
 
@@ -233,36 +214,33 @@
 /* ── Tablet ── */
 @media (max-width: 1024px) {
   .topRow {
-      flex-direction: column;
-      gap: 24px;
-      padding: 0 24px;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 24px;
   }
 
   .ctaBtn {
-      align-self: flex-start;
+    align-self: flex-start;
   }
 
   .track {
-      padding: 0 24px;
+    padding-inline: 24px;
+    scroll-padding-left: 24px;
   }
 
   .card {
-      flex: 0 0 calc(60% - 36px);
+    flex: 0 0 calc(60% - 36px);
   }
 
   .wrapper {
-      padding: 48px 0 36px;
+    padding: 48px 0 36px;
   }
 }
 
 /* ── Mobile ── */
 @media (max-width: 640px) {
-
   .wrapper {
     padding: 36px 0 28px;
-  }
-  .description{
-    text-align: center;
   }
 
   .topRow {
@@ -274,10 +252,6 @@
   .topLeft {
     width: 100%;
     align-items: flex-start;
-  }
-
-  .headingRow {
-    gap: 12px;
   }
 
   .heading {
@@ -300,6 +274,7 @@
     max-width: 100%;
     font-size: 0.9rem;
     line-height: 1.7;
+    text-align: center;
   }
 
   .ctaBtn {
@@ -307,7 +282,8 @@
   }
 
   .track {
-    padding: 0 16px;
+    padding-inline: 16px;
+    scroll-padding-left: 16px;
     gap: 16px;
   }
 
