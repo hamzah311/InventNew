@@ -246,8 +246,8 @@
 /* ── Bottom Bar ──────────────────────────────────────────── */
 .bottomBar {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
 }
 
 .copyright {
@@ -349,5 +349,10 @@
 
     .divider {
         margin: 36px 0 16px;
+    }
+    .bottomBar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
