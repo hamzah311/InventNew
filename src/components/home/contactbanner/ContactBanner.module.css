@@ -84,9 +84,13 @@
 }
 
 .rowTwo {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  display: flex;
+  width: 100%;
+}
+
+.rowTwo .submitBtn {
+  width: 100%;
+  flex: 1;
 }
 
 /* Inputs */
