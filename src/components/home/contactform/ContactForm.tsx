@@ -119,13 +119,6 @@ export default function ContactForm({
                 Villa Lift
               </option>
 
-              <option value="Commercial Lift">
-                Commercial Lift
-              </option>
-
-              <option value="Maintenance">
-                Maintenance
-              </option>
             </select>
 
             <button
