@@ -254,7 +254,7 @@
     font-size: 13px;
     color: rgba(255, 255, 255, 0.6);
     margin: 0;
-    text-align: center;
+    /* text-align: left; */
 }
 
 /* ============================================================
@@ -309,11 +309,15 @@
         gap: 32px;
     }
 
-    .brandCol,
-    .locationsCol,
-    .contactCol {
+    .brandCol {
         align-items: center;
         text-align: center;
+    }
+    
+    .locationsCol,
+    .contactCol {
+        align-items: flex-start;
+        text-align: left;
     }
 
     .tagline {
@@ -340,9 +344,8 @@
     }
 
     .socialRow {
-        justify-content: center;
+        justify-content: flex-start;
     }
-
     .contactTitle {
         font-size: 20px;
     }
